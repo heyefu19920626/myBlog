@@ -5,4 +5,7 @@
 > source venv/bin/activate
 - 安装django
 > pip install django
+- 管理员账户密码
+> root  
+> rootadmin
 

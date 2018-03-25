@@ -37,4 +37,23 @@ STATICFILES_DIR = [
 > python manage.py makemessages -l en
 - 翻译之后编译本地文件
 > python manage.py compilemessages
+- 创建管理员账户
+> python manage.py createsuperuser
+- 创建应用
+> python manage.py startapp blog
+- 安装应用,在setting.py中安装
+> 'blog'
+- 在blog/models.py中创建模型
+``` python
+class Category(models.Model):
+    name = models.CharField(max_length=100)
+```
+- 在blog/admin.py中注册模型
+``` python
+from blog.models improt Category
 
+admin.site.register(Category)
+```
+- 修改数据库
+> python manage.py makemigrations blog  
+> python manage.py migrate
