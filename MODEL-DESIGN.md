@@ -17,3 +17,9 @@
 | ID | 标题 | 正文 | 作者 | 创建时间 | 修改时间 | 分类 | 标签 |
 |:----:|:----:|:----:|:----:|:----:|:----:|:----:|:----:|
 | int | CharField | TextField | User | DateTimeField | DateTimeField | Category | Tag |
+
+- Comments 评论表
+
+| ID | 文章ID | 内容 | 作者 | 创建时间 |
+|:---:|:---:|:---:|:---:|:---:|
+| int |Article ID | TextFiled | User | DateTimeField |
