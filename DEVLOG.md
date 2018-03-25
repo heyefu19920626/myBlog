@@ -57,3 +57,27 @@ admin.site.register(Category)
 - 修改数据库
 > python manage.py makemigrations blog  
 > python manage.py migrate
+- 修改myBlog/urls.py,引入blog应用的url
+> path('', include('blog.urls'))
+- 创建基础模板base.html和首页模板index.html
+- 在blog/views.py中创建首页视图函数
+``` python
+def index(request):
+    return render(request, 'blog/index.html')
+```
+- 新建blog/urls.py,并创建对应的首页连接
+``` python
+from django.urls import path
+from . import views
+
+urlpattern =[
+    path('', views.index, name='index'),
+]
+```
+- 收集静态文件
+> python manage.py collectstatic
+- 在blog/view.py中创建国际化函数chang_language
+- 在blog/url.py中添加url,并注册应用名称
+> app_name = 'blog'  
+> path('change_language/<language>/', views.change_language, name='change_language')
+- 在base.html中添加切换语言的功能

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-25 14:44+0800\n"
+"POT-Creation-Date: 2018-03-25 16:06+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,10 +18,14 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: .\blog\templates\blog\base.html:25
+#: .\blog\templates\blog\base.html:26
 msgid "Myblog"
-msgstr "我的博客"
+msgstr "Myblog"
 
-#: .\blog\templates\blog\base.html:32
+#: .\blog\templates\blog\base.html:34
 msgid "setting"
-msgstr "设置"
+msgstr "Setting"
+
+#: .\blog\templates\blog\base.html:36
+msgid "language"
+msgstr "Language"

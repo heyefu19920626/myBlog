@@ -8,4 +8,7 @@
 - 管理员账户密码
 > root  
 > rootadmin
+- 启动
+> python manage.py runserver
+- 访问
 
