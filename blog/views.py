@@ -3,12 +3,15 @@ from urllib.parse import unquote
 from django.http import HttpResponseRedirect, Http404, HttpResponse
 from django.utils.translation import LANGUAGE_SESSION_KEY
 from django.utils.http import is_safe_url
+from .models import Article
 
 # Create your views here.
 
 def index(request):
     """ 定位到首页 """
-    return render(request, 'blog/index.html')
+    articles = Article.objects.all()
+    context = {'articles': articles}
+    return render(request, 'blog/index.html', context)
 
 def change_language(request, language):
     """ 切换语言并重定向到之前的页面 """

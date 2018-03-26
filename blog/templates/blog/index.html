@@ -1,7 +1,21 @@
 {% extends 'blog/base.html' %}
+{% load i18n %}
 
 {% block header %}
-欢迎来到我的博客!
-
-当前语言是{{ request.LANGUAGE_CODE }}
+<div class="container">
+    <h1>当前博客列表<h1>
+</div>
 {% endblock header%}
+
+{% block content %}
+<div class="container">
+    {% for article in articles %}
+    <h3>{{ article.title }}</h3>
+    <span>{% trans 'Author' %}:{{ article.author }}</span>
+    <span>{% trans 'CteatedTime' %}:{{ article.created_time }}</span>
+    <span>{% trans 'ModifiedTime' %}:{{ article.modifide_time }}</span>
+    <div class="container">{{ article.body }}</div>
+    {% endfor %}
+
+</div>
+{% endblock content %}
