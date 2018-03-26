@@ -3,19 +3,20 @@
 
 {% block header %}
 <div class="container">
-    <h1>当前博客列表<h1>
 </div>
 {% endblock header%}
 
 {% block content %}
-<div class="container">
-    {% for article in articles %}
-    <h3>{{ article.title }}</h3>
-    <span>{% trans 'Author' %}:{{ article.author }}</span>
-    <span>{% trans 'CteatedTime' %}:{{ article.created_time }}</span>
-    <span>{% trans 'ModifiedTime' %}:{{ article.modifide_time }}</span>
-    <div class="container">{{ article.body }}</div>
-    {% endfor %}
-
+<div class="row">
+    <div class="col-md-2">
+    </div>
+    <div class="col-md-8">
+        {% for article in articles %}
+        <div class="jumbotron">
+            <h3><a href="#">{{ article.title }}</a><small style="float: right;">{% trans 'Author' %}:{{ article.author }}{% trans 'CteatedTime' %}:{{ article.created_time }}{% trans 'ModifiedTime' %}:{{ article.modifide_time }}</small></h3>
+            <p class="lead">{{ article.body }}</p>
+        </div>
+        {% endfor %}
+    </div>
 </div>
 {% endblock content %}
