@@ -23,3 +23,15 @@
 | ID | 文章ID | 内容 | 作者 | 创建时间 |
 |:---:|:---:|:---:|:---:|:---:|
 | int |Article ID | TextFiled | User | DateTimeField |
+
+- User 用户表
+
+| ID | 用户名 | 密码 | 邮箱 | 昵称 | 注册时间 | 发表博文 | 头像 | 
+|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+| int | CharField | CharField | CharField | CharField | DateTimeField | int | CharField |
+
+- 文章 -> 标签表
+
+| 文章ID | 标签ID |
+|:---:|:---:|
+| int | int |
