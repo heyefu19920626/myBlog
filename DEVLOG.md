@@ -84,5 +84,6 @@ urlpattern =[
 - 在bolg/view中修改index视图,给前台返回所有博文列表
 - 修改blog/url.py与index.html使首页正常显示
 - 添加article_details.html模板作为文章详情页
+> {{ article.body | safe }}
 - 添加article_details视图函数,给前台返回对应文章信息
 - 添加文章详情的url
