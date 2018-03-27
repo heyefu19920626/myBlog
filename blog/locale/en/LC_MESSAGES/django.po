@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-26 21:46+0800\n"
+"POT-Creation-Date: 2018-03-27 22:41+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,26 +18,30 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: blog/templates/blog/base.html:26
-msgid "Myblog"
-msgstr "Myblog"
-
-#: blog/templates/blog/base.html:34
-msgid "setting"
-msgstr "Setting"
-
-#: blog/templates/blog/base.html:36
-msgid "language"
-msgstr "Language"
-
-#: blog/templates/blog/index.html:14
+#: blog/templates/blog/article_details.html:16
 msgid "Author"
 msgstr "Author"
 
-#: blog/templates/blog/index.html:15
-msgid "CteatedTime"
+#: blog/templates/blog/article_details.html:25
+msgid "Category"
+msgstr "Category"
+
+#: blog/templates/blog/article_details.html:26
+msgid "CreatedTime"
 msgstr "CteatedTime"
 
-#: blog/templates/blog/index.html:16
+#: blog/templates/blog/article_details.html:27
 msgid "ModifiedTime"
 msgstr "ModifiedTime"
+
+#: blog/templates/blog/base.html:28
+msgid "Myblog"
+msgstr "Myblog"
+
+#: blog/templates/blog/base.html:36
+msgid "setting"
+msgstr "Setting"
+
+#: blog/templates/blog/base.html:38
+msgid "language"
+msgstr "Language"

@@ -12,7 +12,9 @@
 <div class="row">
     <!-- left start -->
     <div class="col-md-2 no-padding">
-        <div class="jumbotron detail-left extend-height"></div>
+        <div class="jumbotron detail-left">
+            {% trans 'Author' %}:{{ article.author }}
+        </div>
     </div>
     <!-- left over -->
     <div class="col-md-10 no-padding">
@@ -20,7 +22,9 @@
         <div class="jumbotron jumbotron-nomargin bg-light">
             <h3 class="text-center">{{ article.title }}</h3>
             <dl class="list-articles">
-                <dt>{{ article.created_time }}</dt>
+                <dt>{% trans 'Category' %}:<a class="a-hover" href="#">{{ article.category }}</a></dt>
+                <dt>{% trans 'CreatedTime' %}:{{ article.created_time }}</dt>
+                <dt>{% trans 'ModifiedTime' %}:{{ article.modified_time }}</dt>
             </dl>
         </div>
         <!-- article title bar over -->

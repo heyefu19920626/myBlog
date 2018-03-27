@@ -19,10 +19,8 @@ def index(request):
 
 def article_details(request, article_id):
     """ 去往文章详情页,接收参数文章id """
-    article_info = Article.objects.get(id=article_id)
-    article = {}
-    article['title'] = article_info.title
-    article['body'] = markdown.markdown(article_info.body, extensions=[
+    article = Article.objects.get(id=article_id)
+    article.body = markdown.markdown(article.body, extensions=[
                                        'markdown.extensions.extra', 
                                        'markdown.extensions.codehilite', 
                                        'markdown.extensions.toc', 
