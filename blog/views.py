@@ -5,6 +5,7 @@ from django.utils.translation import LANGUAGE_SESSION_KEY
 from django.utils.http import is_safe_url
 from .models import Article
 import markdown
+#from markdown.extensions import Extension
 
 # Create your views here.
 
@@ -22,7 +23,10 @@ def article_details(request, article_id):
     article = {}
     article['title'] = article_info.title
     article['body'] = markdown.markdown(article_info.body, extensions=[
-                                       'markdown.extensions.extra', 'markdown.extensions.codehilite', 'markdown.extensions.toc', ])
+                                       'markdown.extensions.extra', 
+                                       'markdown.extensions.codehilite', 
+                                       'markdown.extensions.toc', 
+                                       'markdown.extensions.fenced_code', ])
     context = {'article': article}
     return render(request, 'blog/article_details.html', context)
 
