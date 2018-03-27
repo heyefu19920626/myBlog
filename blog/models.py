@@ -33,7 +33,7 @@ class Article(models.Model):
     # 创建时间
     created_time = models.DateTimeField(auto_now_add=True)
     # 修改时间
-    modifide_time = models.DateTimeField(auto_now=True)
+    modified_time = models.DateTimeField(auto_now=True)
     # 作者
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     # 标签
