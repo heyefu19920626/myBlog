@@ -9,7 +9,7 @@ from .models import Article
 
 def index(request):
     """ 定位到首页 """
-    articles = Article.objects.all()
+    articles = Article.objects.all().order_by('-created_time')
     context = {'articles': articles}
     return render(request, 'blog/index.html', context)
 
