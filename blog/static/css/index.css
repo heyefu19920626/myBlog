@@ -5,6 +5,10 @@
     text-decoration: none;
     color: #be24ab;
 }
+.jumbotron-nomargin{
+    margin: 0;
+    padding: 1rem;
+}
 .jumbotron-articles{
     margin: 0.5rem 0;
     padding: 1rem 2rem;
@@ -14,4 +18,13 @@
 }
 .list-articles dt{
     margin-right: 1rem;
+}
+.no-margin{
+    margin: 0;
+}
+.no-padding{
+    padding: 0;
+}
+.extend-height{
+    height: 100%;
 }
