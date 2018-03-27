@@ -25,6 +25,7 @@
                 <dt>{% trans 'Category' %}:<a class="a-hover" href="#">{{ article.category }}</a></dt>
                 <dt>{% trans 'CreatedTime' %}:{{ article.created_time }}</dt>
                 <dt>{% trans 'ModifiedTime' %}:{{ article.modified_time }}</dt>
+                <dt><a class="a-hover" href="{% url 'blog:edit_article' article.id %}">{% trans 'Edit' %}</a></dt>
             </dl>
         </div>
         <!-- article title bar over -->

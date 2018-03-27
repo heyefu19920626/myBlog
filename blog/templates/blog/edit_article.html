@@ -1,0 +1,25 @@
+{% extends 'blog/base.html' %}
+{% load i18n %}
+{% load static %}
+
+{% block extracss %}
+        <link rel="stylesheet" href="{% static 'css/index.css' %}">
+{% endblock extracss %}
+
+
+{% block content %}
+    <div class="row">
+        <div class="col-md-2">
+        </div>
+        <div class="jumbotron col-md-8 no-padding">
+            <!-- article title bar start -->
+            <form action="{% url 'blog:edit_article' article.id %}" method='post'>
+                <div class="form-group">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                </div>
+                <button name='submit'>add entry</button>
+            </form>
+        </div>
+    </div>
+{% endblock content %}

@@ -3,9 +3,11 @@ from urllib.parse import unquote
 from django.http import HttpResponseRedirect, Http404, HttpResponse
 from django.utils.translation import LANGUAGE_SESSION_KEY
 from django.utils.http import is_safe_url
+from django.urls import reverse
 from .models import Article
 import markdown
 #from markdown.extensions import Extension
+from .forms import ArticleForm
 
 # Create your views here.
 
@@ -21,12 +23,28 @@ def article_details(request, article_id):
     """ 去往文章详情页,接收参数文章id """
     article = Article.objects.get(id=article_id)
     article.body = markdown.markdown(article.body, extensions=[
-                                       'markdown.extensions.extra', 
-                                       'markdown.extensions.codehilite', 
-                                       'markdown.extensions.toc', 
-                                       'markdown.extensions.fenced_code', ])
+        'markdown.extensions.extra',
+        'markdown.extensions.codehilite',
+        'markdown.extensions.toc',
+        'markdown.extensions.fenced_code', ])
     context = {'article': article}
     return render(request, 'blog/article_details.html', context)
+
+
+def edit_article(request, article_id):
+    """ 编辑文章 """
+    article = Article.objects.get(id=article_id)
+
+    if request.method != 'POST':
+        form = ArticleForm(instance=article)
+    else:
+        form = ArticleForm(instance=article, data=request.POST)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse('blog:article_details', args=[article_id]))
+    context = {'article': article, 'form':form}
+    return render(request, 'blog/edit_article.html', context)
+
 
 
 def change_language(request, language):
