@@ -87,3 +87,7 @@ urlpattern =[
 > {{ article.body | safe }}
 - 添加article_details视图函数,给前台返回对应文章信息
 - 添加文章详情的url
+- 安装支持markdown语法和高亮的模块
+> pip install markdown  
+> pip install Pygments
+- 引入相关css文件
