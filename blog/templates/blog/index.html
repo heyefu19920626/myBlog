@@ -1,10 +1,10 @@
 {% extends 'blog/base.html' %}
 {% load i18n %}
+{% load static %}
 
-{% block header %}
-<div class="container">
-</div>
-{% endblock header%}
+{% block extracss %}
+        <link rel="stylesheet" href="{% static 'css/index.css' %}">
+{% endblock extracss %}
 
 {% block content %}
 <div class="row">
@@ -12,10 +12,14 @@
     </div>
     <div class="col-md-8">
         {% for article in articles %}
-        <div class="jumbotron">
-            <h3><a href="#">{{ article.title }}</a><small style="float: right;">{% trans 'Author' %}:{{ article.author }}{% trans 'CteatedTime' %}:{{ article.created_time }}{% trans 'ModifiedTime' %}:{{ article.modifide_time }}</small></h3>
-            <p class="lead">{{ article.body }}</p>
-        </div>
+            <div class="jumbotron jumbotron-articles">
+                <h3><a href="#" class="a-text a-hover">{{ article.title }}</a></h3>
+                <dl class="list-articles">
+                    <dt><a class="a-hover" href="#">{{ article.category }}</a></dt>
+                    <dt><a class="text-secondary a-hover" href="#">{{ article.author }}</a></dt>
+                    <dt><a href="#" class="text-dark a-hover">{{ article.created_time }}</a></dt>
+                </dl>
+            </div>
         {% endfor %}
     </div>
 </div>

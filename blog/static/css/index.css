@@ -1,0 +1,17 @@
+.a-text{
+    color: #343a40;
+}
+.a-hover:hover{
+    text-decoration: none;
+    color: #be24ab;
+}
+.jumbotron-articles{
+    margin: 0.5rem 0;
+    padding: 1rem 2rem;
+}
+.list-articles{
+    display: flex;
+}
+.list-articles dt{
+    margin-right: 1rem;
+}
