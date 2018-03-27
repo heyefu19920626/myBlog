@@ -5,6 +5,10 @@
 > source venv/bin/activate
 - 安装django
 > pip install django
+- 安装markdown
+> pip install markdown
+- 安装Pygments
+> pip install Pygments
 - 管理员账户密码
 > root  
 > rootadmin
