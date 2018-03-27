@@ -1,0 +1,33 @@
+{% extends 'blog/base.html' %}
+{% load i18n %}
+{% load static %}
+
+{% block extracss %}
+        <link rel="stylesheet" href="{% static 'css/index.css' %}">
+{% endblock extracss %}
+
+{% block content %}
+<div class="container">
+<div class="row">
+    <!-- left start -->
+    <div class="col-md-2">
+    </div>
+    <!-- left over -->
+    <div class="col-md-10">
+        <!-- article title bar start -->
+        <div class="jumbotron jumbotron-articles bg-light">
+            <h3 class="text-center">{{ article.title }}</h3>
+            <dl class="list-articles">
+                <dt>{{ article.created_time }}</dt>
+            </dl>
+        </div>
+        <!-- article title bar over -->
+        <div class="jumbotron">
+            <pre>
+                {{ article.body }}
+            </pre>
+        </div>
+    </div>
+</div>
+</div>
+{% endblock content %}

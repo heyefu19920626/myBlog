@@ -13,6 +13,19 @@ def index(request):
     context = {'articles': articles}
     return render(request, 'blog/index.html', context)
 
+def article_details(request, article_id):
+    """ 去往文章详情页,接收参数文章id """
+    article = Article.objects.get(id=article_id)
+    context = {'article' : article}
+    return render(request, 'blog/article_details.html', context)
+
+
+
+
+
+
+
+
 def change_language(request, language):
     """ 切换语言并重定向到之前的页面 """
     lang_code = language

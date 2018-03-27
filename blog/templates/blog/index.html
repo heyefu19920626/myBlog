@@ -13,7 +13,7 @@
     <div class="col-md-8">
         {% for article in articles %}
             <div class="jumbotron jumbotron-articles">
-                <h3><a href="#" class="a-text a-hover">{{ article.title }}</a></h3>
+                <h3><a href="{% url 'blog:article_details' article.id %}" class="a-text a-hover">{{ article.title }}</a></h3>
                 <dl class="list-articles">
                     <dt><a class="a-hover" href="#">{{ article.category }}</a></dt>
                     <dt><a class="text-secondary a-hover" href="#">{{ article.author }}</a></dt>
