@@ -23,9 +23,7 @@
         </div>
         <!-- article title bar over -->
         <div class="jumbotron">
-            <pre>
-                {{ article.body }}
-            </pre>
+            {{ article.body | safe }}
         </div>
     </div>
 </div>

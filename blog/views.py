@@ -4,8 +4,10 @@ from django.http import HttpResponseRedirect, Http404, HttpResponse
 from django.utils.translation import LANGUAGE_SESSION_KEY
 from django.utils.http import is_safe_url
 from .models import Article
+import markdown
 
 # Create your views here.
+
 
 def index(request):
     """ 定位到首页 """
@@ -13,17 +15,16 @@ def index(request):
     context = {'articles': articles}
     return render(request, 'blog/index.html', context)
 
+
 def article_details(request, article_id):
     """ 去往文章详情页,接收参数文章id """
-    article = Article.objects.get(id=article_id)
-    context = {'article' : article}
+    article_info = Article.objects.get(id=article_id)
+    article = {}
+    article['title'] = article_info.title
+    article['body'] = markdown.markdown(article_info.body, extensions=[
+                                       'markdown.extensions.extra', 'markdown.extensions.codehilite', 'markdown.extensions.toc', ])
+    context = {'article': article}
     return render(request, 'blog/article_details.html', context)
-
-
-
-
-
-
 
 
 def change_language(request, language):
