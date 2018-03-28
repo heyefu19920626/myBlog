@@ -11,14 +11,38 @@
     <div class="row">
         <div class="col-md-2">
         </div>
-        <div class="jumbotron col-md-8 no-padding">
+        <div class="jumbotron col-md-8 small-padding">
             <!-- article title bar start -->
             <form action="{% url 'blog:edit_article' article.id %}" method='post'>
-                <div class="form-group">
-                    {% csrf_token %}
-                    {{ form.as_p }}
+                {% csrf_token %}
+                <div class="form-group row">
+                    <label for="title" class="col-md-2 col-form-label text-center">{% trans 'Your Title' %}</label>
+                    <div class="col-md-10">
+                        <input type="text" class="form-control" name="title" placeholder="Your Title" required id="id_title" value="{{ article.title }}">
+                    </div>
                 </div>
-                <button name='submit'>add entry</button>
+                <div class="form-group row">
+                    <label for="id_category" class="col-md-2 col-form-label text-center">{% trans 'Category' %}</label>
+                    <div class="col-md-10">
+                        <select name="category" class="form-control" required id="id_category">
+                            {% for category in categorys %}
+                                {% if category == article.category %}
+                                <option selected="selected" value="{{ category.id }}">{{ category }}</option>
+                                {% else %}
+                                <option value="{{ category.id }}">{{ category }}</option>
+                                {% endif %}
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <label for="id_body" class="col-md-2 text-center">{% trans 'Content' %}</label>
+                        <div class="col-md-8"></div>
+                        <button name='submit' class="col-md-1 btn btn-primary">{% trans 'Save' %}</button>
+                    </div>
+                    <textarea name="body" class="form-control" required id="id_body" rows="32">{{ article.body }}</textarea>
+                </div>
             </form>
         </div>
     </div>

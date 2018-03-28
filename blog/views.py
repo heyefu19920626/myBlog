@@ -4,7 +4,7 @@ from django.http import HttpResponseRedirect, Http404, HttpResponse
 from django.utils.translation import LANGUAGE_SESSION_KEY
 from django.utils.http import is_safe_url
 from django.urls import reverse
-from .models import Article
+from .models import Article, Category
 import markdown
 #from markdown.extensions import Extension
 from .forms import ArticleForm
@@ -38,11 +38,15 @@ def edit_article(request, article_id):
     if request.method != 'POST':
         form = ArticleForm(instance=article)
     else:
+        print(request.POST['category'])
         form = ArticleForm(instance=article, data=request.POST)
         if form.is_valid():
             form.save()
             return HttpResponseRedirect(reverse('blog:article_details', args=[article_id]))
-    context = {'article': article, 'form':form}
+        else:
+            print('表单验证出错')
+    categorys = Category.objects.all()
+    context = {'article': article, 'form':form, 'categorys': categorys}
     return render(request, 'blog/edit_article.html', context)
 
 
