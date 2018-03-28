@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-27 22:41+0800\n"
+"POT-Creation-Date: 2018-03-28 23:06+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -23,6 +23,7 @@ msgid "Author"
 msgstr "作者"
 
 #: blog/templates/blog/article_details.html:25
+#: blog/templates/blog/edit_article.html:25
 msgid "Category"
 msgstr "分类"
 
@@ -33,6 +34,10 @@ msgstr "创建时间"
 #: blog/templates/blog/article_details.html:27
 msgid "ModifiedTime"
 msgstr "修改时间"
+
+#: blog/templates/blog/article_details.html:28
+msgid "Edit"
+msgstr "编辑"
 
 #: blog/templates/blog/base.html:28
 msgid "Myblog"
@@ -45,3 +50,15 @@ msgstr "设置"
 #: blog/templates/blog/base.html:38
 msgid "language"
 msgstr "语言"
+
+#: blog/templates/blog/edit_article.html:19
+msgid "Your Title"
+msgstr "标题"
+
+#: blog/templates/blog/edit_article.html:40
+msgid "Content"
+msgstr "内容"
+
+#: blog/templates/blog/edit_article.html:42
+msgid "Save"
+msgstr "保存"
