@@ -8,6 +8,7 @@ from .models import Article, Category
 import markdown
 #from markdown.extensions import Extension
 from .forms import ArticleForm
+from django.contrib.auth.models import User
 
 # Create your views here.
 
@@ -22,13 +23,27 @@ def index(request):
 def article_details(request, article_id):
     """ 去往文章详情页,接收参数文章id """
     article = Article.objects.get(id=article_id)
+    # 获取文章作者
+    author = article.author
+    # 获取该作者的其他文章
+    articles = get_articles_byauthor(author)
     article.body = markdown.markdown(article.body, extensions=[
         'markdown.extensions.extra',
         'markdown.extensions.codehilite',
         'markdown.extensions.toc',
         'markdown.extensions.fenced_code', ])
-    context = {'article': article}
+    context = {'article': article, "articles": articles, }
     return render(request, 'blog/article_details.html', context)
+
+
+
+def get_articles_byauthor(article_author):
+    """ 根据文章作者获取其所有文章 """
+    articles = Article.objects.filter(author=article_author)
+    return articles
+
+
+
 
 
 def edit_article(request, article_id):

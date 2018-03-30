@@ -10,13 +10,24 @@
 {% block content %}
 <div class="container">
 <div class="row">
+
     <!-- left start -->
     <div class="col-md-2 no-padding">
-        <div class="jumbotron detail-left">
+        <div class="jumbotron no-margin">
             {% trans 'Author' %}:{{ article.author }}
+        </div>
+        <div class="jumbotron no-padding">
+            <div>
+                <h6>他的最新文章</h6><a href="#">查看更多</a><br>
+                {% for essay in articles %}
+                <a href="{% url 'blog:article_details' essay.id %}">{{ essay.title }}</a><br>
+                {% endfor %}
+            </div>
         </div>
     </div>
     <!-- left over -->
+
+
     <div class="col-md-10 no-padding">
         <!-- article title bar start -->
         <div class="jumbotron jumbotron-nomargin bg-light">
