@@ -6,6 +6,7 @@ from django.utils.http import is_safe_url
 from django.urls import reverse
 from .models import Article, Category
 import markdown
+import markdown.extensions
 from .forms import ArticleForm
 from django.contrib.auth.models import User
 
@@ -26,25 +27,8 @@ def article_details(request, article_id):
     author = article.author
     # 获取该作者的其他文章
     articles = get_articles_byauthor(author)
-    article.body = markdown.markdown(article.body, extensions=[
-        'markdown.extensions.extra',
-        'markdown.extensions.codehilite',
-        'markdown.extensions.toc',
-        'markdown.extensions.fenced_code',
-        'markdown.extensions.abbr',
-        'markdown.extensions.attr_list',
-        'markdown.extensions.def_list',
-        'markdown.extensions.footnotes',
-        'markdown.extensions.tables',
-        'markdown.extensions.smart_strong',
-        'markdown.extensions.admonition',
-        'markdown.extensions.headerid',
-        'markdown.extensions.meta',
-        'markdown.extensions.nl2br',
-        'markdown.extensions.sane_lists',
-        'markdown.extensions.smarty',
-        'markdown.extensions.wikilinks',
-    ])
+    article.body = markdown.markdown(article.body, extensions=['markdown.extensions.extra', 'markdown.extensions.codehilite', 'markdown.extensions.toc', 'markdown.extensions.fenced_code', 'markdown.extensions.abbr', 'markdown.extensions.attr_list', 'markdown.extensions.def_list', 'markdown.extensions.footnotes',
+                                                               'markdown.extensions.tables', 'markdown.extensions.smart_strong', 'markdown.extensions.admonition', 'markdown.extensions.headerid', 'markdown.extensions.meta', 'markdown.extensions.nl2br', 'markdown.extensions.sane_lists', 'markdown.extensions.smarty', 'markdown.extensions.wikilinks'])
     context = {'article': article, "articles": articles, }
     return render(request, 'blog/article_details.html', context)
 
