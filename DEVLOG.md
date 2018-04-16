@@ -91,3 +91,12 @@ urlpattern =[
 > pip install markdown  
 > pip install Pygments
 - 引入相关css文件
+- 新建用户users app
+> python manage.py startapp users
+- 在setting.py中添加users应用
+- 在应用users下新建urls.py
+- 在项目myBlog下的urls.py中引入users的urls
+- 在users下新建templates/users/login.html
+- 编写登录页面
+- 在users下的urls中引入django自带的user模块中的login并调用
+- 在users下的views中编写注销视图函数,并在urls中调用
