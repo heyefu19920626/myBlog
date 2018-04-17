@@ -100,3 +100,5 @@ urlpattern =[
 - 编写登录页面
 - 在users下的urls中引入django自带的user模块中的login并调用
 - 在users下的views中编写注销视图函数,并在urls中调用
+- 引入django自带的Usercreate
+- 注册并自动登录

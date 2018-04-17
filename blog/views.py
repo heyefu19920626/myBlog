@@ -9,6 +9,7 @@ import markdown
 import markdown.extensions
 from .forms import ArticleForm
 from django.contrib.auth.models import User
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
@@ -39,6 +40,7 @@ def get_articles_byauthor(article_author):
     return articles
 
 
+@login_required
 def edit_article(request, article_id):
     """ 编辑文章 """
     article = Article.objects.get(id=article_id)
