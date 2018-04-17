@@ -44,6 +44,8 @@ def get_articles_byauthor(article_author):
 def edit_article(request, article_id):
     """ 编辑文章 """
     article = Article.objects.get(id=article_id)
+    if article.author != request.user:
+        raise Http404
 
     if request.method != 'POST':
         form = ArticleForm(instance=article)
