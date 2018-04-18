@@ -7,7 +7,7 @@ from django.urls import reverse
 from .models import Article, Category
 import markdown
 import markdown.extensions
-from .forms import ArticleForm
+from .forms import ArticleForm, NewArticleForm
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 
@@ -60,6 +60,23 @@ def edit_article(request, article_id):
     categorys = Category.objects.all()
     context = {'article': article, 'form': form, 'categorys': categorys}
     return render(request, 'blog/edit_article.html', context)
+
+
+@login_required
+def new_article(request):
+    """　新建博客 """
+    if request.method != 'POST':
+        form = NewArticleForm()
+        categorys = Category.objects.all()
+    else:
+        form = NewArticleForm(data=request.POST)
+
+        if form.is_valid():
+            new_article = form.save(commit=False)
+            new_article.save()
+            return HttpResponseRedirect(reverse('blog:article_details', kwargs={'article_id': new_article.id}))
+    context = {'form': form, 'categorys': categorys}
+    return render(request, 'blog/new_article.html', context)
 
 
 def change_language(request, language):

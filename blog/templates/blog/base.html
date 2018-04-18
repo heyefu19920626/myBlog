@@ -33,12 +33,26 @@
                 <div id="navbar" class="collapse navbar-collapse justify-content-end">
                     <ul class="navbar-nav">
                         {% if user.is_authenticated %}
-                        <li><a class="nav-link" href="#" >{{ user.username }}</a></li>
-                        <li><a class="nav-link" href="{% url 'users:logout' %}">{% trans 'Sign out' %}</a></li>
+                        <!-- 登录后显示 -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="setting" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ user.username }}</a>
+                            <div class="dropdown-menu" aria-labelledby="setting">
+                                <a class="dropdown-item" href="{% url 'blog:new_article' %}">{% trans 'New Blog' %}</a>
+                                <!-- 语言切换开始　-->
+                                <a class="dropdown-item dropdown-toggle" id="language" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">{% trans 'language' %}</a>
+                                <div class="dropdown-menu" aria-labelledby="language">
+                                    {% for language in LANGUAGES %}
+                                    <a class="dropdown-item" href="{% url 'blog:change_language' language.0 %}" next={{ request.path }}>{{ language.1 }}</a>
+                                    {% endfor %}
+                                </div>
+                                <!-- 语言切换结束 -->
+                                <a class="dropdown-item" href="{% url 'users:logout' %}">{% trans 'Sign out' %}</a>
+                            </div>
+                        </li>
                         {% else %}
+                        <!-- 未登录显示 -->
                         <li><a class="nav-link" href="{% url 'users:register' %}" >{% trans 'Sign in' %}</a></li>
                         <li><a class="nav-link" href="{% url 'users:login' %}" >{% trans 'Sign up' %}</a></li>
-                        {% endif %}
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="setting" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{% trans 'setting' %}</a>
                             <div class="dropdown-menu" aria-labelledby="setting">
@@ -50,6 +64,8 @@
                                 </div>
                             </div>
                         </li>
+                        {% endif %}
+                        
                     </ul>
                 </div>
                 <!-- navbar content over -->
