@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-04-16 17:28+0800\n"
+"POT-Creation-Date: 2018-04-19 17:42+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -24,6 +24,7 @@ msgstr "Author"
 
 #: .\blog\templates\blog\article_details.html:36
 #: .\blog\templates\blog\edit_article.html:25
+#: .\blog\templates\blog\new_article.html:25
 msgid "Category"
 msgstr "Category"
 
@@ -35,7 +36,7 @@ msgstr "CteatedTime"
 msgid "ModifiedTime"
 msgstr "ModifiedTime"
 
-#: .\blog\templates\blog\article_details.html:39
+#: .\blog\templates\blog\article_details.html:40
 msgid "Edit"
 msgstr "Edit"
 
@@ -43,34 +44,41 @@ msgstr "Edit"
 msgid "Myblog"
 msgstr "Myblog"
 
-#: .\blog\templates\blog\base.html:37
-msgid "Sign out"
-msgstr "Sign out"
-
-#: .\blog\templates\blog\base.html:39
-msgid "Sign in"
-msgstr "Sign in"
-
 #: .\blog\templates\blog\base.html:40
-msgid "Sign up"
-msgstr "Sign up"
+msgid "New Blog"
+msgstr "New Blog"
 
-#: .\blog\templates\blog\base.html:43
-msgid "setting"
-msgstr "Setting"
-
-#: .\blog\templates\blog\base.html:45
+#: .\blog\templates\blog\base.html:42 .\blog\templates\blog\base.html:59
 msgid "language"
 msgstr "Language"
 
+#: .\blog\templates\blog\base.html:49
+msgid "Sign out"
+msgstr "Sign out"
+
+#: .\blog\templates\blog\base.html:54
+msgid "Sign in"
+msgstr "Sign in"
+
+#: .\blog\templates\blog\base.html:55
+msgid "Sign up"
+msgstr "Sign up"
+
+#: .\blog\templates\blog\base.html:57
+msgid "setting"
+msgstr "Setting"
+
 #: .\blog\templates\blog\edit_article.html:19
+#: .\blog\templates\blog\new_article.html:19
 msgid "Your Title"
-msgstr "Title"
+msgstr "Your Title"
 
 #: .\blog\templates\blog\edit_article.html:40
+#: .\blog\templates\blog\new_article.html:36
 msgid "Content"
 msgstr "Content"
 
 #: .\blog\templates\blog\edit_article.html:42
+#: .\blog\templates\blog\new_article.html:38
 msgid "Save"
 msgstr "Save"
