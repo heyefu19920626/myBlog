@@ -52,7 +52,10 @@ main{
     padding: 1rem;
 }
 .hover-bg-primary:hover{
-                background-color: #06D;
-                color: #fff;
-
+    background-color: #06D;
+    color: #fff;
+}
+.nav-head-image{
+    height: 25px;
+    width: 25px;
 }

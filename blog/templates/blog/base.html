@@ -35,7 +35,11 @@
                         {% if user.is_authenticated %}
                         <!-- 登录后显示 -->
                         <li class="nav-item dropdown">
+                            {% if user.head_portrait %}
+                            <a class="navbar-brand dropdown-toggle" href="#" id="setting" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img class="nav-head-image" src="{{ user.head_portrait }}"></a>
+                            {% else %}
                             <a class="nav-link dropdown-toggle" href="#" id="setting" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ user.username }}</a>
+                            {% endif %}
                             <div class="dropdown-menu" aria-labelledby="setting">
                                 <a class="dropdown-item hover-bg-primary" href="{% url 'blog:new_article' %}">{% trans 'New Blog' %}</a>
                                 <div class="dropdown-divider"></div>
