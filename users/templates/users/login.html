@@ -12,20 +12,38 @@
     <div class="col-md-2">
     </div>
     <div class="col-md-8">
-        <form method="post" action="{% url 'users:login' %}">
+        <form class="needs-validation" novalidate method="post" action="{% url 'users:login' %}">
             {% csrf_token %}
+            <div class="text-warning">{{ form.non_field_errors }}</div>
             <div class="form-group">
                 <label class="text-white" for="username">{% trans 'Username' %}</label>
                 <input type="username" class="form-control" id="username" name="username" placeholder="{% trans 'Pick a username' %}">
             </div>
             <div class="form-group">
-            <label class="text-white" for="password">{% trans 'Password' %}</label>
-            <input type="password" class="form-control" id="password" name="password" placeholder="{% trans 'Password' %}">
+                <label class="text-white" for="password">{% trans 'Password' %}</label>
+                <input type="password" class="form-control" id="password" name="password" placeholder="{% trans 'Password' %}">
+                <div>{{ form.password.errors }}</div>
             </div>
             <button type="submit" class="btn btn-primary">{% trans 'Sign up' %}</button>
             <input type="hidden" name="next" value="{% url 'blog:index' %}" />
         </form>
     </div>
 </div>
-
+<script type="text/javascript">
+(function() {
+  'use strict';
+  window.addEventListener('load', function() {
+    var forms = document.getElementsByClassName('needs-validation');
+    var validation = Array.prototype.filter.call(forms, function(form) {
+      form.addEventListener('submit', function(event) {
+        if (form.checkValidity() === false) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+        form.classList.add('was-validated');
+      }, false);
+    });
+  }, false);
+})();
+</script>
 {% endblock content %}
