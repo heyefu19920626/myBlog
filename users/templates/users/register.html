@@ -13,30 +13,70 @@
     <div class="col-md-2">
     </div>
     <div class="col-md-8">
-        <form class="needs-validation" method="post" action="{% url 'users:register' %}">
+        <form class="needs-validation" novalidate method="post" action="{% url 'users:register' %}">
             {% csrf_token %}
             <div class="form-group">
                 <label class="text-white" for="id_username">{% trans 'Username' %}</label>
-                <input type="username" class="form-control" id="id_username" autofocus required name="username" placeholder="{% trans 'Pick a username' %}">
-                <div>{% trans 'Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only.' %}</div>
+                <input type="username" class="form-control is-valid" id="id_username" autofocus required name="username" placeholder="{% trans 'Pick a username' %}">
+                {% if form.username.errors %}
+                <div>
+                    {% for error in form.username.errors %}
+                        <div class="text-warning">{{ error|escape }}</div>
+                    {% endfor %}
+                </div>
+                {% else %}
+                <div class="text-white">{{ form.username.help_text }}</div>
+                {% endif %}
             </div>
             <div class="form-group">
                 <label class="text-white" for="id_password1">{% trans 'Password' %}</label>
-                <input type="password" class="form-control" id="id_password1" required name="password1" placeholder="{% trans 'Password' %}">
-                <div>{% trans "Your password can't be too similar to your other personal information." %}</div>
-                <div>{% trans "Your password must contain at least 8 characters." %}</div>
-                <div>{% trans "Your password can't be a commonly used password." %}</div>
-                <div>{% trans "Your password can't be entirely numeric." %}</div>
+                <input type="password" class="form-control is-valid" id="id_password1" required name="password1" placeholder="{% trans 'Password' %}">
+                {% if form.password1.errors %}
+                <div class="text-warning">
+                    {% for error in form.password1.errors %}
+                        <div class="text-warning">{{ error|escape }}</div>
+                    {% endfor %}
+                </div>
+                {% else %}
+                <div class="text-white">{{ form.password1.help_text|safe }}</div>
+                {% endif %}
             </div>
             <div class="form-group">
                 <label class="text-white" for="id_password2">{% trans 'Password Confirm' %}</label>
-                <input type="password" class="form-control" id="id_password2" required name="password2" placeholder="{% trans 'Password Confirm' %}">
-                <div>{% trans 'Enter the same password as before, for verification.' %}</div>
+                <input type="password" class="form-control is-valid" id="id_password2" required name="password2" placeholder="{% trans 'Password Confirm' %}">
+                {% if form.password2.errors %}
+                <div class="text-warning">
+                    {% for error in form.password2.errors %}
+                        <p class="text-warning">{{ error|escape }}</p>
+                    {% endfor %}
+                </div>
+                {% else %}
+                <div class="text-white">{{ form.password2.help_text }}</div>
+                {% endif %}
             </div>
             <button type="submit" class="btn btn-primary">{% trans 'Sign in' %}</button>
             <input type="hidden" name="next" value="{% url 'blog:index' %}" />
-            {{ form.error_message }}
         </form>
     </div>
 </div>
+<script type="text/javascript">
+// Example starter JavaScript for disabling form submissions if there are invalid fields
+(function() {
+  'use strict';
+  window.addEventListener('load', function() {
+    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+    var forms = document.getElementsByClassName('needs-validation');
+    // Loop over them and prevent submission
+    var validation = Array.prototype.filter.call(forms, function(form) {
+      form.addEventListener('submit', function(event) {
+        if (form.checkValidity() === false) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+        form.classList.add('was-validated');
+      }, false);
+    });
+  }, false);
+})();
+</script>
 {% endblock content %}
