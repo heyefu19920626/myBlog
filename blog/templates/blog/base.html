@@ -38,6 +38,7 @@
                             <a class="nav-link dropdown-toggle" href="#" id="setting" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ user.username }}</a>
                             <div class="dropdown-menu" aria-labelledby="setting">
                                 <a class="dropdown-item" href="{% url 'blog:new_article' %}">{% trans 'New Blog' %}</a>
+                                <a class="dropdown-item" href="{% url 'users:profile_setting' %}">{% trans 'setting' %}</a>
                                 <!-- 语言切换开始　-->
                                 <a class="dropdown-item dropdown-toggle" id="language" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">{% trans 'language' %}</a>
                                 <div class="dropdown-menu" aria-labelledby="language">

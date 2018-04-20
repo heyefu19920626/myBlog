@@ -28,3 +28,9 @@ def register(request):
             return HttpResponseRedirect(reverse('blog:index'))
     context = {'form' : form}
     return render(request, 'users/register.html', context)
+
+
+def profile_setting(request):
+    """ 用户账户设置 """
+    context = {}
+    return render(request, 'users/profile_setting.html', context)
