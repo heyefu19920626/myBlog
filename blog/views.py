@@ -8,7 +8,8 @@ from .models import Article, Category
 import markdown
 import markdown.extensions
 from .forms import ArticleForm, NewArticleForm
-from django.contrib.auth.models import User
+# from django.contrib.auth.models import User
+# from users.models import MyUser
 from django.contrib.auth.decorators import login_required
 
 # Create your views here.
