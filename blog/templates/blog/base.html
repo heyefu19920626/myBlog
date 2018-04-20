@@ -11,11 +11,11 @@
         <meta name="description" content="何野夫的个人博客,使用Django2.0.3+Python3.6.3+Bootstrap4编写">
         <title>何野夫</title>
         <link rel="stylesheet" href="{% static 'bootstrap4/css/bootstrap.min.css' %}">
+        <link rel="stylesheet" href="{% static 'css/index.css' %}">
         <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
         <script src="{% static 'js/popper.min.js' %}"></script>
         <script src="{% static 'bootstrap4/js/bootstrap.min.js' %}"></script>
         {% block extracss %}{% endblock extracss %}
-       
     </head>
     <body>
         <!-- navbar start -->
@@ -37,17 +37,18 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="setting" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ user.username }}</a>
                             <div class="dropdown-menu" aria-labelledby="setting">
-                                <a class="dropdown-item" href="{% url 'blog:new_article' %}">{% trans 'New Blog' %}</a>
-                                <a class="dropdown-item" href="{% url 'users:profile_setting' %}">{% trans 'setting' %}</a>
+                                <a class="dropdown-item hover-bg-primary" href="{% url 'blog:new_article' %}">{% trans 'New Blog' %}</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item hover-bg-primary" href="{% url 'users:profile_setting' %}">{% trans 'setting' %}</a>
                                 <!-- 语言切换开始　-->
-                                <a class="dropdown-item dropdown-toggle" id="language" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">{% trans 'language' %}</a>
+                                <a class="dropdown-item dropdown-toggle hover-bg-primary" id="language" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">{% trans 'language' %}</a>
                                 <div class="dropdown-menu" aria-labelledby="language">
                                     {% for language in LANGUAGES %}
-                                    <a class="dropdown-item" href="{% url 'blog:change_language' language.0 %}" next={{ request.path }}>{{ language.1 }}</a>
+                                    <a class="dropdown-item hover-bg-primary" href="{% url 'blog:change_language' language.0 %}" next={{ request.path }}>{{ language.1 }}</a>
                                     {% endfor %}
                                 </div>
                                 <!-- 语言切换结束 -->
-                                <a class="dropdown-item" href="{% url 'users:logout' %}">{% trans 'Sign out' %}</a>
+                                <a class="dropdown-item hover-bg-primary" href="{% url 'users:logout' %}">{% trans 'Sign out' %}</a>
                             </div>
                         </li>
                         {% else %}
@@ -60,7 +61,7 @@
                                 <a class="dropdown-item dropdown-toggle" id="language" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">{% trans 'language' %}</a>
                                 <div class="dropdown-menu" aria-labelledby="language">
                                     {% for language in LANGUAGES %}
-                                    <a class="dropdown-item" href="{% url 'blog:change_language' language.0 %}" next={{ request.path }}>{{ language.1 }}</a>
+                                    <a class="dropdown-item hover-bg-primary" href="{% url 'blog:change_language' language.0 %}" next={{ request.path }}>{{ language.1 }}</a>
                                     {% endfor %}
                                 </div>
                             </div>

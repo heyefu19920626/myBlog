@@ -51,3 +51,8 @@ main{
 .small-padding{
     padding: 1rem;
 }
+.hover-bg-primary:hover{
+                background-color: #06D;
+                color: #fff;
+
+}
