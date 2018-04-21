@@ -4,7 +4,6 @@ from django.http import HttpResponseRedirect, HttpResponse
 from django.urls import reverse
 # from django.contrib.auth.forms import UserCreationForm
 from .forms import MyUserCreateForm as UserCreationForm
-from PIL import Image
 from django.conf import settings
 
 
@@ -34,20 +33,27 @@ def register(request):
     return render(request, 'users/register.html', context)
 
 
-def profile_setting(request):
-    """ 用户账户设置 """
+def head_pic_setting(request):
+    """ 用户头像 """
     if request.method != 'POST':
         fname = ''
     else:
         rquire_head_pic = request.FILES['head_pic']
-        fname = '%s/pic/%s' % (settings.MEDIA_ROOT, rquire_head_pic)
+        # 将上传的图片重命名
+        pic_name = rquire_head_pic.name
+        suffix = pic_name[pic_name.rindex('.'):]
+        pic_name = str(request.user.id) + '_head' + suffix
+        # 将上传的图片写入文件
+        fname = '%s/pic/head/%s' % (settings.MEDIA_ROOT, pic_name)
         with open(fname, 'wb') as pic:
             for c in rquire_head_pic.chunks():
                 pic.write(c)
-        fname = '/media' + fname.split('media')[1]
+        # 将头像路径保存入数据库
         author = request.user
         author.head_portrait = fname
         author.save()
+        # 返回图片路径
+        fname = settings.MEDIA_URL + 'pic/head/' + pic_name
 
     context = {'pic': fname}
     return render(request, 'users/profile_setting.html', context)
