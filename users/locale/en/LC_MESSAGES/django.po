@@ -2,13 +2,13 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
+# 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-04-19 17:42+0800\n"
+"POT-Creation-Date: 2018-04-22 17:12+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,55 +17,88 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-#: .\users\templates\users\login.html:18
-#: .\users\templates\users\register.html:19
+
+#: .\users\templates\users\login.html:17
+#: .\users\templates\users\register.html:15
 msgid "Username"
 msgstr ""
 
-#: .\users\templates\users\login.html:19
-#: .\users\templates\users\register.html:20
+#: .\users\templates\users\login.html:18
+#: .\users\templates\users\register.html:16
 msgid "Pick a username"
 msgstr ""
 
-#: .\users\templates\users\login.html:22 .\users\templates\users\login.html:23
-#: .\users\templates\users\register.html:24
-#: .\users\templates\users\register.html:25
-#: .\users\templates\users\register.html:33
+#: .\users\templates\users\login.html:24 .\users\templates\users\login.html:25
+#: .\users\templates\users\register.html:28
+#: .\users\templates\users\register.html:29
 msgid "Password"
 msgstr ""
 
-#: .\users\templates\users\login.html:25
+#: .\users\templates\users\login.html:30
 msgid "Sign up"
 msgstr ""
 
-#: .\users\templates\users\register.html:21
-msgid "Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only."
-msgstr ""
-
-#: .\users\templates\users\register.html:26
-msgid "Your password can't be too similar to your other personal information."
-msgstr ""
-
-#: .\users\templates\users\register.html:27
-msgid "Your password must contain at least 8 characters."
-msgstr ""
-
-#: .\users\templates\users\register.html:28
-msgid "Your password can't be a commonly used password."
-msgstr ""
-
-#: .\users\templates\users\register.html:29
-msgid "Your password can't be entirely numeric."
-msgstr ""
-
-#: .\users\templates\users\register.html:32
+#: .\users\templates\users\register.html:41
+#: .\users\templates\users\register.html:42
 msgid "Password Confirm"
 msgstr ""
 
-#: .\users\templates\users\register.html:34
-msgid "Enter the same password as before, for verification."
+#: .\users\templates\users\register.html:53
+msgid "Sign in"
 msgstr ""
 
-#: .\users\templates\users\register.html:36
-msgid "Sign in"
+#: .\users\templates\users\setting.html:65
+msgid "Profile"
+msgstr ""
+
+#: .\users\templates\users\setting.html:66
+msgid "Account"
+msgstr ""
+
+#: .\users\templates\users\setting.html:67
+msgid "Emails"
+msgstr ""
+
+#: .\users\templates\users\setting.html:68
+msgid "Notifacations"
+msgstr ""
+
+#: .\users\templates\users\setting.html:77
+msgid "Public profile"
+msgstr ""
+
+#: .\users\templates\users\setting.html:83
+msgid "Nick Name"
+msgstr ""
+
+#: .\users\templates\users\setting.html:84
+msgid "Your Nick Name"
+msgstr ""
+
+#: .\users\templates\users\setting.html:87
+msgid "Sex"
+msgstr ""
+
+#: .\users\templates\users\setting.html:91
+msgid "Male"
+msgstr ""
+
+#: .\users\templates\users\setting.html:97
+msgid "Women"
+msgstr ""
+
+#: .\users\templates\users\setting.html:102
+msgid "Bio"
+msgstr ""
+
+#: .\users\templates\users\setting.html:103
+msgid "Tell us a little bit about yourself."
+msgstr ""
+
+#: .\users\templates\users\setting.html:106
+msgid "Save"
+msgstr ""
+
+#: .\users\templates\users\setting.html:115
+msgid "Upload new picture"
 msgstr ""

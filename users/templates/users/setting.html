@@ -24,7 +24,6 @@
     }
     .btn-green{
         display: block;
-        width: 100px;
         height: 35px;
         line-height: 35px;
         text-align: center;
@@ -75,14 +74,14 @@
         <!-- 修改头像 start -->
         <div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list">
             <div class="jumbotron padding-samll no-margin bg-light">
-                <div class="row no-margin setting-head"><h4>公开个人资料</h4></div>
+                <div class="row no-margin setting-head"><h4>{% trans 'Public profile' %}</h4></div>
                 <div class="dropdown-divider"></div>
                 <div class="row no-margin">
                     <div class="col-md-8">
                         <form>
                             <div class="form-group">
                             <label for="nickname">{% trans 'Nick Name' %}</label>
-                            <input type="text" class="form-control" id="nickname" placeholder="Your Nick Name" value="{{ user.nickname }}">
+                            <input type="text" class="form-control" id="nickname" placeholder="{% trans 'Your Nick Name' %}" value="{{ user.nickname }}">
                             </div>
                             <div class="form-group">
                                 <label for="sex">{% trans 'Sex' %}</label><br>
@@ -113,7 +112,7 @@
                                 <img class="head-pic-priview" id="head_pic_priview" src="{% if user.head_portrait %} {{ user.head_portrait }} {% else %} {{ pic }} {% endif %}">
                             </span>
                             <span>
-                                <span class="btn-green margin-center" onclick="upload()">修改头像</span>
+                                <button class="btn margin-center" onclick="upload()">{% trans 'Upload new picture' %}</button>
                                 <input required class="btn-upload" id="upload_head_input" onchange="upload_head_pic()" type="file" name="head_pic">
                             </span>
                         </form>

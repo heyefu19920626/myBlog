@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-04-19 17:42+0800\n"
+"POT-Creation-Date: 2018-04-22 17:12+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,25 +18,25 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: .\blog\templates\blog\article_details.html:17
+#: .\blog\templates\blog\article_details.html:16
 msgid "Author"
 msgstr "作者"
 
-#: .\blog\templates\blog\article_details.html:36
-#: .\blog\templates\blog\edit_article.html:25
-#: .\blog\templates\blog\new_article.html:25
+#: .\blog\templates\blog\article_details.html:35
+#: .\blog\templates\blog\edit_article.html:21
+#: .\blog\templates\blog\new_article.html:20
 msgid "Category"
 msgstr "分类"
 
-#: .\blog\templates\blog\article_details.html:37
+#: .\blog\templates\blog\article_details.html:36
 msgid "CreatedTime"
 msgstr "创建时间"
 
-#: .\blog\templates\blog\article_details.html:38
+#: .\blog\templates\blog\article_details.html:37
 msgid "ModifiedTime"
 msgstr "修改时间"
 
-#: .\blog\templates\blog\article_details.html:40
+#: .\blog\templates\blog\article_details.html:39
 msgid "Edit"
 msgstr "编辑"
 
@@ -44,41 +44,41 @@ msgstr "编辑"
 msgid "Myblog"
 msgstr "我的博客"
 
-#: .\blog\templates\blog\base.html:40
+#: .\blog\templates\blog\base.html:44
 msgid "New Blog"
 msgstr "新建"
 
-#: .\blog\templates\blog\base.html:42 .\blog\templates\blog\base.html:59
-msgid "language"
-msgstr "语言"
-
-#: .\blog\templates\blog\base.html:49
-msgid "Sign out"
-msgstr "注销"
-
-#: .\blog\templates\blog\base.html:54
-msgid "Sign in"
-msgstr "注册"
-
-#: .\blog\templates\blog\base.html:55
-msgid "Sign up"
-msgstr "登录"
-
-#: .\blog\templates\blog\base.html:57
+#: .\blog\templates\blog\base.html:46 .\blog\templates\blog\base.html:63
 msgid "setting"
 msgstr "设置"
 
-#: .\blog\templates\blog\edit_article.html:19
-#: .\blog\templates\blog\new_article.html:19
+#: .\blog\templates\blog\base.html:48 .\blog\templates\blog\base.html:65
+msgid "language"
+msgstr "语言"
+
+#: .\blog\templates\blog\base.html:55
+msgid "Sign out"
+msgstr "注销"
+
+#: .\blog\templates\blog\base.html:60
+msgid "Sign in"
+msgstr "注册"
+
+#: .\blog\templates\blog\base.html:61
+msgid "Sign up"
+msgstr "登录"
+
+#: .\blog\templates\blog\edit_article.html:15
+#: .\blog\templates\blog\new_article.html:14
 msgid "Your Title"
 msgstr "标题"
 
-#: .\blog\templates\blog\edit_article.html:40
-#: .\blog\templates\blog\new_article.html:36
+#: .\blog\templates\blog\edit_article.html:36
+#: .\blog\templates\blog\new_article.html:31
 msgid "Content"
 msgstr "内容"
 
-#: .\blog\templates\blog\edit_article.html:42
-#: .\blog\templates\blog\new_article.html:38
+#: .\blog\templates\blog\edit_article.html:38
+#: .\blog\templates\blog\new_article.html:33
 msgid "Save"
 msgstr "保存"
