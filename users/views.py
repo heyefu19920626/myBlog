@@ -41,6 +41,7 @@ def head_pic_setting(request):
         rquire_head_pic = request.FILES['head_pic']
         # 将上传的图片重命名
         pic_name = rquire_head_pic.name
+        print(pic_name)
         suffix = pic_name[pic_name.rindex('.'):]
         pic_name = str(request.user.id) + '_head' + suffix
         # 将上传的图片写入文件
@@ -48,12 +49,47 @@ def head_pic_setting(request):
         with open(fname, 'wb') as pic:
             for c in rquire_head_pic.chunks():
                 pic.write(c)
+
+        # 返回图片路径
+        fname = settings.MEDIA_URL + 'pic/head/' + pic_name
+        print(fname)
         # 将头像路径保存入数据库
         author = request.user
         author.head_portrait = fname
         author.save()
-        # 返回图片路径
-        fname = settings.MEDIA_URL + 'pic/head/' + pic_name
 
     context = {'pic': fname}
-    return render(request, 'users/profile_setting.html', context)
+    return render(request, 'users/setting.html', context)
+
+
+
+def upload_head_pic(request):
+    """ 上传用户头像 """
+    rquire_head_pic = request.FILES['head_pic']
+    # 将上传的图片重命名
+    pic_name = rquire_head_pic.name
+    print(pic_name)
+    suffix = pic_name[pic_name.rindex('.'):]
+    pic_name = str(request.user.id) + '_head_temp' + suffix
+    # 将上传的图片写入文件
+    fname = '%s/pic/head/%s' % (settings.MEDIA_ROOT, pic_name)
+    with open(fname, 'wb') as pic:
+        for c in rquire_head_pic.chunks():
+            pic.write(c)
+
+    # 返回图片路径
+    fname = settings.MEDIA_URL + 'pic/head/' + pic_name
+    return HttpResponse(fname)
+
+def change_head_pic(request):
+    """ 修改用户头像 """
+    head_pic_path = request.POST['pic_path']
+
+
+    author = request.user
+    # 将头像路径保存入数据库
+    author = request.user
+    author.head_portrait = head_pic_path
+    author.save()
+    return HttpResponse('success')
+
