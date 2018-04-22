@@ -4,6 +4,56 @@
 
 {% block extracss %}
         <link rel="stylesheet" href="{% static 'css/highlight.css' %}">
+
+
+        <style type="text/css">
+    .input-head-pic{
+        opacity: 0;
+    }
+    .head-pic-span{
+        display: block;
+        width: 100px;
+        height: 100px;
+        overflow: hidden;
+        border-radius: 50%;
+        border: 3px solid #eee;
+    }
+    .head-pic-priview{
+        width: 100%;
+        height: 100%;
+    }
+    .btn-green{
+        display: block;
+        height: 35px;
+        line-height: 35px;
+        text-align: center;
+        text-indent: 0;
+        color: #fff;
+        background-color: #717171;
+    }
+    .btn-upload{
+        display: hidden;
+        opacity: 0;
+    }
+    .setting-head{
+        background-color: #f8f8f8;
+    }
+    .border{
+        border: 1px solid #eaeaea;
+    }
+    .margin-center{
+        margin:0 auto;
+    }
+    .margin-top{
+        margin-top: 2rem;
+    }
+    .padding-samll{
+        padding: 1rem;
+    }
+    .border-tint{
+        border-color: #b3bcc6;
+    }
+</style>
 {% endblock extracss %}
 
 {% block content %}
@@ -11,39 +61,48 @@
 <div class="row">
 
     <!-- left start -->
-    <div class="col-md-2 no-padding">
-        <div class="jumbotron no-margin">
-            {% trans 'Author' %}:{{ article.author }}
+    <div class="col-md-2 no-padding bg-light">
+        <div class="jumbotron jumbotron-nomargin text-center">
+        <!-- 作者信息 start -->
+        <span class="head-pic-span margin-center margin-top">
+            <img class="head-pic-priview" id="head_pic_priview" src="{{ article.author.head_portrait }}">
+        </span>
+        <span>
+            <span class="text-black">{{ article.author }}</span><br>
+            {% if article.author != user %}
+            <button class="btn btn-secondary">{% trans 'Follow' %}</button>
+            {% endif %}
+        </span>
+        <!-- end -->
+        <div class="dropdown-divider border-tint"></div>
+        <!-- 文章列表 start -->
+        <div class="text-left">
+            <h6>{% trans 'The latest blog post' %}</h6>
+            {% for essay in articles %}
+            <a class="a-text a-hover" href="{% url 'blog:article_details' essay.id %}">{{ essay.title }}</a><br>
+            {% endfor %}
+            <a href="#">{% trans 'More' %}</a>
         </div>
-        <div class="jumbotron no-padding">
-            <div>
-                <h6>他的最新文章</h6><a href="#">查看更多</a><br>
-                {% for essay in articles %}
-                <a href="{% url 'blog:article_details' essay.id %}">{{ essay.title }}</a><br>
-                {% endfor %}
-            </div>
+        <!-- end -->
         </div>
     </div>
     <!-- left over -->
 
 
-    <div class="col-md-10 no-padding">
+    <div class="col-md-10 bg-light">
         <!-- article title bar start -->
-        <div class="jumbotron jumbotron-nomargin bg-light">
-            <h3 class="text-center">{{ article.title }}</h3>
-            <dl class="list-articles">
-                <dt>{% trans 'Category' %}:<a class="a-hover" href="#">{{ article.category }}</a></dt>
-                <dt>{% trans 'CreatedTime' %}:{{ article.created_time }}</dt>
-                <dt>{% trans 'ModifiedTime' %}:{{ article.modified_time }}</dt>
-                {% if user == article.author %}
-                <dt><a class="a-hover" href="{% url 'blog:edit_article' article.id %}">{% trans 'Edit' %}</a></dt>
-                {% endif %}
-            </dl>
+        <h3 class="margin-top">{{ article.title }}</h3>
+        <div class="d-flex flex-row">
+            <a class="a-hover p-2" href="#">{{ article.category }}</a>
+            <span class="p-2">{{ article.created_time }}</span>
+            {% if user == article.author %}
+            <a class="a-hover ml-auto p-2" href="{% url 'blog:edit_article' article.id %}">{% trans 'Edit' %}</a>
+            <a class="a-hover p-2" href="#">{% trans 'Delete' %}</a>
+            {% endif %}
         </div>
+        <div class="dropdown-divider"></div>
         <!-- article title bar over -->
-        <div class="jumbotron jumbotron-nomargin">
-            {{ article.body | safe }}
-        </div>
+        {{ article.body | safe }}
     </div>
 </div>
 </div>

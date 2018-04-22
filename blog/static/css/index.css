@@ -49,7 +49,7 @@ main{
     height: 100%;
 }
 .small-padding{
-    padding: 1rem;
+    padding: 2rem;
 }
 .hover-bg-primary:hover{
     background-color: #06D;
