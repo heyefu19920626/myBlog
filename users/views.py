@@ -5,6 +5,8 @@ from django.urls import reverse
 # from django.contrib.auth.forms import UserCreationForm
 from .forms import MyUserCreateForm as UserCreationForm
 from django.conf import settings
+import os
+from django.http import JsonResponse
 
 
 # Create your views here.
@@ -62,13 +64,11 @@ def head_pic_setting(request):
     return render(request, 'users/setting.html', context)
 
 
-
 def upload_head_pic(request):
     """ 上传用户头像 """
     rquire_head_pic = request.FILES['head_pic']
     # 将上传的图片重命名
     pic_name = rquire_head_pic.name
-    print(pic_name)
     suffix = pic_name[pic_name.rindex('.'):]
     pic_name = str(request.user.id) + '_head_temp' + suffix
     # 将上传的图片写入文件
@@ -81,15 +81,32 @@ def upload_head_pic(request):
     fname = settings.MEDIA_URL + 'pic/head/' + pic_name
     return HttpResponse(fname)
 
+
 def change_head_pic(request):
     """ 修改用户头像 """
+    # 获取图片相对路径
     head_pic_path = request.POST['pic_path']
+    if head_pic_path == None or head_pic_path == '':
+        context = {'error': '没有图片'}
+        return JsonResponse(context)
+    head_pic_path = head_pic_path.split('media')[-1]
+    # 获取图片绝对路径
+    head_pic_path = '%s%s' % (settings.MEDIA_ROOT, head_pic_path)
 
-
+    if os.path.exists(head_pic_path):
+        # 头像保存路径
+        new_name = head_pic_path.replace('head_temp', 'head')
+        if os.path.exists(new_name):
+            # 删除已有头像
+            os.remove(new_name)
+        # 重命名头像
+        os.rename(head_pic_path, new_name)
     author = request.user
     # 将头像路径保存入数据库
     author = request.user
-    author.head_portrait = head_pic_path
+    # 将新头像存入数据库并返回头像新路径
+    new_name = settings.MEDIA_URL + new_name.split(settings.MEDIA_ROOT)[-1]
+    author.head_portrait = new_name
     author.save()
-    return HttpResponse('success')
-
+    context = {'success': new_name}
+    return JsonResponse(context)

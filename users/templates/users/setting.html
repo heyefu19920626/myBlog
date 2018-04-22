@@ -96,18 +96,17 @@
 
     function save_head_pic(){
         var head_pic_path = $('#head_pic_priview').attr('src');
+        head_pic_path = head_pic_path || '';
         head_pic_path = head_pic_path.split('?')[0];
         $.ajax({
             url: '{% url "users:change_head_pic" %}',
             type: 'POST',
-            data: {pic_path:head_pic_path, csrfmiddlewaretoken: '{{ csrf_token }}', },
+            data: {pic_path: head_pic_path, csrfmiddlewaretoken: '{{ csrf_token }}', },
             dataType: 'json',
             success: function(data){
-                console.log('success');
-                console.log(data);
+                $('.nav-head-image').attr('src',data.success + '?' + Math.random());
             },
             error: function(data){
-                console.log("error");
             }
         });
     }
