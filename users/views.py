@@ -89,6 +89,11 @@ def change_head_pic(request):
     if head_pic_path == None or head_pic_path == '':
         context = {'error': '没有图片'}
         return JsonResponse(context)
+
+    if  'head_temp' not in head_pic_path: 
+        context = {'error' : '没有临时图片'}
+        return JsonResponse(context)
+
     head_pic_path = head_pic_path.split('media')[-1]
     # 获取图片绝对路径
     head_pic_path = '%s%s' % (settings.MEDIA_ROOT, head_pic_path)

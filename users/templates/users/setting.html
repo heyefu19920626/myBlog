@@ -36,6 +36,21 @@
         display: hidden;
         opacity: 0;
     }
+    .setting-head{
+        background-color: #f8f8f8;
+    }
+    .border{
+        border: 1px solid #eaeaea;
+    }
+    .margin-center{
+        margin:0 auto;
+    }
+    .margin-top{
+        margin-top: 3rem;
+    }
+    .padding-samll{
+        padding: 1rem;
+    }
 </style>
 
 
@@ -59,18 +74,51 @@
     <div class="tab-content" id="nav-tabContent">
         <!-- 修改头像 start -->
         <div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list">
-            <div class="jumbotron jumbotron-nomargin bg-light">
-                <form id="upload_head_pic"  action="{% url 'users:upload_head_pic' %}" method="post" enctype="multipart/form-data">
-                    {% csrf_token %}
-                    <span class="head-pic-span" onclick="upload()">
-                        <img class="head-pic-priview" id="head_pic_priview" src="{{ pic }}">
-                    </span>
-                    <span>
-                        <span class="btn-green">修改头像</span>
-                        <input required class="btn-upload" id="upload_head_input" onchange="upload_head_pic()" type="file" name="head_pic">
-                    </span>
-                </form>
-                <button class="btn btn-primary" id="upload_btn" onclick="save_head_pic()">{% trans 'Save' %}</button>
+            <div class="jumbotron padding-samll no-margin bg-light">
+                <div class="row no-margin setting-head"><h4>公开个人资料</h4></div>
+                <div class="dropdown-divider"></div>
+                <div class="row no-margin">
+                    <div class="col-md-8">
+                        <form>
+                            <div class="form-group">
+                            <label for="nickname">{% trans 'Nick Name' %}</label>
+                            <input type="text" class="form-control" id="nickname" placeholder="Your Nick Name" value="{{ user.nickname }}">
+                            </div>
+                            <div class="form-group">
+                                <label for="sex">{% trans 'Sex' %}</label><br>
+                                <div class="form-check-inline" id='sex'>
+                                <input class="form-check-input" type="radio" name="sex" id="sex_male" value="option1" checked>
+                                <label class="form-check-label" for="sex_male">
+                                    {% trans 'Male' %}
+                                </label>
+                                </div>
+                                <div class="form-check-inline">
+                                <input class="form-check-input" type="radio" name="sex" id="sex_women" value="option2">
+                                <label class="form-check-label" for="sex_women">
+                                    {% trans 'Women' %}
+                                </label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                            <label for="bio">{% trans 'Bio' %}</label>
+                            <input type="text" class="form-control" id="bio" placeholder="{% trans 'Tell us a little bit about yourself.' %}">
+                            </div>
+                        </form>
+                        <button class="btn btn-primary" id="upload_btn" onclick="save_head_pic()">{% trans 'Save' %}</button>
+                    </div>
+                    <div class="col-md-4 text-center no-padding">
+                        <form id="upload_head_pic"  action="{% url 'users:upload_head_pic' %}" method="post" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <span class="head-pic-span margin-center margin-top" onclick="upload()">
+                                <img class="head-pic-priview" id="head_pic_priview" src="{% if user.head_portrait %} {{ user.head_portrait }} {% else %} {{ pic }} {% endif %}">
+                            </span>
+                            <span>
+                                <span class="btn-green margin-center" onclick="upload()">修改头像</span>
+                                <input required class="btn-upload" id="upload_head_input" onchange="upload_head_pic()" type="file" name="head_pic">
+                            </span>
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
         <!-- 修改头像 end -->
@@ -93,7 +141,6 @@
         });
     }
 
-
     function save_head_pic(){
         var head_pic_path = $('#head_pic_priview').attr('src');
         head_pic_path = head_pic_path || '';
@@ -104,7 +151,7 @@
             data: {pic_path: head_pic_path, csrfmiddlewaretoken: '{{ csrf_token }}', },
             dataType: 'json',
             success: function(data){
-                $('.nav-head-image').attr('src',data.success + '?' + Math.random());
+                data.success && $('.nav-head-image').attr('src',data.success + '?' + Math.random());
             },
             error: function(data){
             }
