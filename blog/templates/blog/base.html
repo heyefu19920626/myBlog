@@ -30,16 +30,18 @@
                 </div>
                 <!-- navabar header over -->
 
-                <!-- Search start -->
-                <form class="form-inline">
-                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="{% trans 'Search' %}">
-                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">{% trans 'Search' %}</button>
-                </form>
-                <!-- end -->
-
                 <!-- navbar content start -->
                 <div id="navbar" class="collapse navbar-collapse justify-content-end">
                     <ul class="navbar-nav">
+                        <!-- Search start -->
+                        <li class="nav-item">
+                            <form class="form-inline margin-right">
+                            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="{% trans 'Search' %}">
+                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">{% trans 'Search' %}</button>
+                            </form>
+                        </li>
+                        <!-- end -->
+
                         {% if user.is_authenticated %}
                         <!-- 登录后显示 -->
                         <li class="nav-item dropdown">

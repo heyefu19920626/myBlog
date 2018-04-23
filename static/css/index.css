@@ -56,10 +56,13 @@ main{
     color: #fff;
 }
 .nav-head-image{
-    height: 25px;
-    width: 25px;
+    height: 2rem;
+    width: 2rem;
 }
 .icon-sm{
     height: 1.2rem;
     width: 1.2rem;
+}
+.margin-right{
+    margin-right: 1rem;
 }
