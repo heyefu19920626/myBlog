@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-04-22 17:12+0800\n"
+"POT-Creation-Date: 2018-04-23 09:24+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -99,6 +99,6 @@ msgstr ""
 msgid "Save"
 msgstr ""
 
-#: .\users\templates\users\setting.html:115
+#: .\users\templates\users\setting.html:116
 msgid "Upload new picture"
 msgstr ""

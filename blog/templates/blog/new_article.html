@@ -12,7 +12,7 @@
                 {% csrf_token %}
                 <!-- 文章标题 start -->
                 <div class="form-group">
-                    <input type="text" class="form-control" name="title" placeholder="Your Title" required id="id_title">
+                    <input type="text" class="form-control" name="title" placeholder="{% trans 'Article Title' %}" required id="id_title">
                 </div>
                 <!-- end -->
 
@@ -35,7 +35,7 @@
 
                 <!-- 文章分类 -->
                 <div class="form-group row">
-                    <label for="id_category" class="col-md-1 col-form-label text-center">{% trans 'Category' %} :</label>
+                    <label for="id_category" class="col-md-2 col-form-label text-center">{% trans 'Category' %} :</label>
                     <div class="col-md-2">
                         <select name="category" class="form-control" required id="id_category">
                             {% for category in categorys %}
@@ -48,9 +48,9 @@
 
                 <!-- 文章标签 -->
                 <div class="form-group row">
-                    <label for="id_tags" class="col-md-1 col-form-label text-center">{% trans 'Tags' %} :</label>
+                    <label for="id_tags" class="col-md-2 col-form-label text-center">{% trans 'Tags' %} :</label>
                     <small id="tagsHelpBlock" class="form-text text-muted">
-                        {% trans '最多添加5个标签' %}
+                        {% trans 'Add 5 tags at most' %}
                     </small>
                 </div>
                 <!-- end -->
