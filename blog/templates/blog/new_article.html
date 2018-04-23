@@ -32,31 +32,31 @@
                     <div class="tab-content" id="nav-tabContent">
                       <div class="tab-pane fade show active" id="edit-article" role="tabpanel" aria-labelledby="edit-article-tab">
                             <textarea name="body" class="form-control" role='tabpanel' required aria-labelledby="home-tab" id="id_body" rows="20"></textarea>
+
+                            <!-- 文章分类 -->
+                            <div class="form-group row">
+                                <label for="id_category" class="col-md-2 col-form-label text-center">{% trans 'Category' %} :</label>
+                                <div class="col-md-2">
+                                    <select name="category" class="form-control" required id="id_category">
+                                        {% for category in categorys %}
+                                            <option value="{{ category.id }}">{{ category }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                            </div>
+                            <!-- end -->
+
+                            <!-- 文章标签 -->
+                            <div class="form-group row">
+                                <label for="id_tags" class="col-md-2 col-form-label text-center">{% trans 'Tags' %} :</label>
+                                <small id="tagsHelpBlock" class="form-text text-muted">
+                                    {% trans 'Add 5 tags at most' %}
+                                </small>
+                            </div>
+                            <!-- end -->
                       </div>
                       <div class="tab-pane fade" id="preview-aritcle" role="tabpanel" aria-labelledby="preview-aritcle-tab"><div class="markdown-body"></div></div>
                     </div>
-                </div>
-                <!-- end -->
-
-                <!-- 文章分类 -->
-                <div class="form-group row">
-                    <label for="id_category" class="col-md-2 col-form-label text-center">{% trans 'Category' %} :</label>
-                    <div class="col-md-2">
-                        <select name="category" class="form-control" required id="id_category">
-                            {% for category in categorys %}
-                                <option value="{{ category.id }}">{{ category }}</option>
-                            {% endfor %}
-                        </select>
-                    </div>
-                </div>
-                <!-- end -->
-
-                <!-- 文章标签 -->
-                <div class="form-group row">
-                    <label for="id_tags" class="col-md-2 col-form-label text-center">{% trans 'Tags' %} :</label>
-                    <small id="tagsHelpBlock" class="form-text text-muted">
-                        {% trans 'Add 5 tags at most' %}
-                    </small>
                 </div>
                 <!-- end -->
 
