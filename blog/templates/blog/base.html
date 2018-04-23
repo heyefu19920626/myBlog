@@ -31,11 +31,11 @@
                 <!-- navabar header over -->
 
                 <!-- navbar content start -->
-                <div id="navbar" class="collapse navbar-collapse justify-content-end">
-                    <ul class="navbar-nav">
+                <div id="navbar" class="collapse navbar-collapse justify-content-between">
+                    <ul class="navbar-nav offset-md-4">
                         <!-- Search start -->
                         <li class="nav-item">
-                            <form class="form-inline margin-right">
+                            <form class="form-inline">
                             <small>
                             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="{% trans 'Search' %}">
                             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">{% trans 'Search' %}</button>
@@ -43,6 +43,9 @@
                             </form>
                         </li>
                         <!-- end -->
+                    </ul>
+                    <ul class="navbar-nav">
+                        
 
                         {% if user.is_authenticated %}
                         <!-- 登录后显示 -->
