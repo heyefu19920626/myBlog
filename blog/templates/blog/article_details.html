@@ -19,7 +19,7 @@
             <img class="head-pic-priview" id="head_pic_priview" src="{{ article.author.head_portrait }}">
         </span>
         <span>
-            <span class="text-black">{{ article.author }}</span><br>
+            <span class="text-black">{{ article.author.nick_name }}</span><br>
             {% if article.author != user %}
             <button class="btn btn-secondary">{% trans 'Follow' %}</button>
             {% endif %}
@@ -62,6 +62,7 @@
         <div class="markdown-body">
             {{ article.body | safe }}
         </div>
+        <br>
     </div>
 </div>
 </div>

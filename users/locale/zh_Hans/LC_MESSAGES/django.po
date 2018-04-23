@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-04-23 09:24+0800\n"
+"POT-Creation-Date: 2018-04-23 22:35+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -47,61 +47,83 @@ msgstr "密码确认"
 msgid "Sign in"
 msgstr "登录"
 
-#: .\users\templates\users\setting.html:65
+#: .\users\templates\users\setting.html:19
 msgid "Profile"
 msgstr "配置文件"
 
-#: .\users\templates\users\setting.html:66
+#: .\users\templates\users\setting.html:20
 msgid "Account"
 msgstr "账户"
 
-#: .\users\templates\users\setting.html:67
+#: .\users\templates\users\setting.html:21
 msgid "Emails"
 msgstr "邮箱"
 
-#: .\users\templates\users\setting.html:68
+#: .\users\templates\users\setting.html:22
 msgid "Notifacations"
 msgstr "通知"
 
-#: .\users\templates\users\setting.html:77
+#: .\users\templates\users\setting.html:31
 msgid "Public profile"
 msgstr "公开个人信息"
 
-#: .\users\templates\users\setting.html:83
+#: .\users\templates\users\setting.html:37
 msgid "Nick Name"
 msgstr "昵称"
 
-#: .\users\templates\users\setting.html:84
+#: .\users\templates\users\setting.html:38
 msgid "Your Nick Name"
 msgstr "你的昵称"
 
-#: .\users\templates\users\setting.html:87
+#: .\users\templates\users\setting.html:41
 msgid "Sex"
 msgstr "性别"
 
-#: .\users\templates\users\setting.html:91
+#: .\users\templates\users\setting.html:45
 msgid "Male"
 msgstr "男"
 
-#: .\users\templates\users\setting.html:97
+#: .\users\templates\users\setting.html:51
 msgid "Women"
 msgstr "女"
 
-#: .\users\templates\users\setting.html:102
+#: .\users\templates\users\setting.html:57
+msgid "Hide"
+msgstr "隐藏"
+
+#: .\users\templates\users\setting.html:62
 msgid "Bio"
 msgstr "个人简介"
 
-#: .\users\templates\users\setting.html:103
+#: .\users\templates\users\setting.html:63
 msgid "Tell us a little bit about yourself."
 msgstr "用简短的话描述自己."
 
-#: .\users\templates\users\setting.html:106
+#: .\users\templates\users\setting.html:66
 msgid "Save"
 msgstr "保存"
 
-#: .\users\templates\users\setting.html:116
+#: .\users\templates\users\setting.html:76
 msgid "Upload new picture"
 msgstr "上传图片"
+
+#: .\users\templates\users\setting.html:121
+msgid "Save success!"
+msgstr "保存成功!"
+
+#: .\users\templates\users\setting.html:124
+msgid "Save fail!"
+msgstr "保存失败!"
+
+#: .\users\templates\users\setting.html:131
+msgid "Information"
+msgstr "信息"
+
+#: .\users\templates\users\setting.html:133
+#, fuzzy
+#| msgid "Password Confirm"
+msgid "Confirm"
+msgstr "密码确认"
 
 #~ msgid "Your password must contain at least 8 characters."
 #~ msgstr "你的密码必须包含至少 8 个字符。"

@@ -16,6 +16,7 @@
         <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
         <script src="{% static 'js/popper.min.js' %}"></script>
         <script src="{% static 'bootstrap4/js/bootstrap.min.js' %}"></script>
+        <script src="{% static 'layer/layer.js' %}"></script>
         {% block extracss %}{% endblock extracss %}
     </head>
     <body>
@@ -37,7 +38,7 @@
                         <li class="nav-item">
                             <form class="form-inline">
                             <small>
-                            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="{% trans 'Search' %}">
+                            <input class="form-control mr-sm-2" type="search" placeholder="{% trans 'Search' %}" aria-label=Search">
                             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">{% trans 'Search' %}</button>
                             </small>
                             </form>

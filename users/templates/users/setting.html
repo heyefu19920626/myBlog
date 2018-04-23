@@ -35,26 +35,32 @@
                         <form>
                             <div class="form-group">
                             <label for="nickname">{% trans 'Nick Name' %}</label>
-                            <input type="text" class="form-control" id="nickname" placeholder="{% trans 'Your Nick Name' %}" value="{{ user.nickname }}">
+                            <input type="text" class="form-control" id="nickname" placeholder="{% trans 'Your Nick Name' %}" value="{{ user.nick_name }}">
                             </div>
                             <div class="form-group">
                                 <label for="sex">{% trans 'Sex' %}</label><br>
                                 <div class="form-check-inline" id='sex'>
-                                <input class="form-check-input" type="radio" name="sex" id="sex_male" value="option1" checked>
+                                <input class="form-check-input" type="radio" name="sex" id="sex_male" value="0" {% if user.sex == 0 %} checked {% endif %}>
                                 <label class="form-check-label" for="sex_male">
                                     {% trans 'Male' %}
                                 </label>
                                 </div>
                                 <div class="form-check-inline">
-                                <input class="form-check-input" type="radio" name="sex" id="sex_women" value="option2">
+                                <input class="form-check-input" type="radio" name="sex" id="sex_women" value="1" {% if user.sex == 1 %} checked {% endif %}>
                                 <label class="form-check-label" for="sex_women">
                                     {% trans 'Women' %}
+                                </label>
+                                </div>
+                                <div class="form-check-inline">
+                                <input class="form-check-input" type="radio" name="sex" id="sex_hide" value="2" {% if user.sex == 2 %} checked {% endif %}>
+                                <label class="form-check-label" for="sex_hide">
+                                    {% trans 'Hide' %}
                                 </label>
                                 </div>
                             </div>
                             <div class="form-group">
                             <label for="bio">{% trans 'Bio' %}</label>
-                            <input type="text" class="form-control" id="bio" placeholder="{% trans 'Tell us a little bit about yourself.' %}">
+                            <input type="text" class="form-control" id="bio" placeholder="{% trans 'Tell us a little bit about yourself.' %}" value="{{ user.bio }}">
                             </div>
                         </form>
                         <button class="btn btn-primary" id="upload_btn" onclick="save_head_pic()">{% trans 'Save' %}</button>
@@ -97,20 +103,35 @@
     }
 
     function save_head_pic(){
+        var nickname = $('#nickname').val();
+        var sex = $('input[name="sex"]:checked').val();
+        var bio = $('#bio').val();
+
+        // 头像
         var head_pic_path = $('#head_pic_priview').attr('src');
         head_pic_path = head_pic_path || '';
         head_pic_path = head_pic_path.split('?')[0];
         $.ajax({
-            url: '{% url "users:change_head_pic" %}',
+            url: '{% url "users:upload_person_info" %}',
             type: 'POST',
-            data: {pic_path: head_pic_path, csrfmiddlewaretoken: '{{ csrf_token }}', },
+            data: {pic_path: head_pic_path, nick_name: nickname, sex: sex, bio: bio, csrfmiddlewaretoken: '{{ csrf_token }}', },
             dataType: 'json',
             success: function(data){
                 data.success && $('.nav-head-image').attr('src', data.success + '?' + Math.random());
+                layer_alert('{% trans "Save success!" %}');
             },
             error: function(data){
+                layer_alert('{% trans "Save fail!" %}');
             }
         });
+    }
+
+    function layer_alert(info){
+        layer.open({
+            title: '{% trans "Information" %}', 
+            content: info,
+            btn: '{% trans "Confirm" %}',
+        }); 
     }
 
 </script>

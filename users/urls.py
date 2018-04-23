@@ -14,5 +14,5 @@ urlpatterns = [
     path('users/register/', views.register, name='register'),
     path('users/setting/profile/', views.head_pic_setting, name='head_pic'),
     path('users/settings/upload_head_pic/', views.upload_head_pic, name='upload_head_pic'),
-    path('users/settings/change_head_pic/', views.change_head_pic, name='change_head_pic'),
+    path('users/settings/upload_person_info/', views.upload_person_info, name='upload_person_info'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

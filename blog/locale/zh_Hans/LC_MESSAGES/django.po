@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-04-23 09:24+0800\n"
+"POT-Creation-Date: 2018-04-23 22:35+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,92 +18,96 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: .\blog\templates\blog\article_details.html:73
+#: .\blog\templates\blog\article_details.html:24
 msgid "Follow"
 msgstr "关注"
 
-#: .\blog\templates\blog\article_details.html:80
+#: .\blog\templates\blog\article_details.html:31
 msgid "The latest blog post"
 msgstr "最近博客列表"
 
-#: .\blog\templates\blog\article_details.html:84
+#: .\blog\templates\blog\article_details.html:35
 msgid "More"
 msgstr "更多"
 
-#: .\blog\templates\blog\article_details.html:99
+#: .\blog\templates\blog\article_details.html:52
 msgid "Edit"
 msgstr "编辑"
 
-#: .\blog\templates\blog\article_details.html:100
+#: .\blog\templates\blog\article_details.html:56
 msgid "Delete"
 msgstr "删除"
 
-#: .\blog\templates\blog\base.html:29
+#: .\blog\templates\blog\base.html:30
 msgid "Myblog"
 msgstr "我的博客"
 
-#: .\blog\templates\blog\base.html:45
+#: .\blog\templates\blog\base.html:41 .\blog\templates\blog\base.html:42
+msgid "Search"
+msgstr ""
+
+#: .\blog\templates\blog\base.html:60
 msgid "New Blog"
 msgstr "新建"
 
-#: .\blog\templates\blog\base.html:47 .\blog\templates\blog\base.html:64
+#: .\blog\templates\blog\base.html:62 .\blog\templates\blog\base.html:79
 msgid "setting"
 msgstr "设置"
 
-#: .\blog\templates\blog\base.html:49 .\blog\templates\blog\base.html:66
+#: .\blog\templates\blog\base.html:64 .\blog\templates\blog\base.html:81
 msgid "language"
 msgstr "语言"
 
-#: .\blog\templates\blog\base.html:56
+#: .\blog\templates\blog\base.html:71
 msgid "Sign out"
 msgstr "注销"
 
-#: .\blog\templates\blog\base.html:61
+#: .\blog\templates\blog\base.html:76
 msgid "Sign in"
 msgstr "注册"
 
-#: .\blog\templates\blog\base.html:62
+#: .\blog\templates\blog\base.html:77
 msgid "Sign up"
 msgstr "登录"
 
-#: .\blog\templates\blog\edit_article.html:16
-#: .\blog\templates\blog\new_article.html:15
+#: .\blog\templates\blog\edit_article.html:20
+#: .\blog\templates\blog\new_article.html:20
 msgid "Article Title"
 msgstr "文章标题"
 
-#: .\blog\templates\blog\edit_article.html:24
+#: .\blog\templates\blog\edit_article.html:28
 msgid "Edit file"
 msgstr "编辑文件"
 
-#: .\blog\templates\blog\edit_article.html:25
-#: .\blog\templates\blog\new_article.html:24
+#: .\blog\templates\blog\edit_article.html:29
+#: .\blog\templates\blog\new_article.html:29
 msgid "Preview"
 msgstr "预览"
 
-#: .\blog\templates\blog\edit_article.html:39
+#: .\blog\templates\blog\edit_article.html:37
 #: .\blog\templates\blog\new_article.html:38
 msgid "Category"
 msgstr "分类"
 
-#: .\blog\templates\blog\edit_article.html:56
+#: .\blog\templates\blog\edit_article.html:54
 #: .\blog\templates\blog\new_article.html:51
 msgid "Tags"
 msgstr "标签"
 
-#: .\blog\templates\blog\edit_article.html:58
+#: .\blog\templates\blog\edit_article.html:56
 #: .\blog\templates\blog\new_article.html:53
 msgid "Add 5 tags at most"
 msgstr "最多添加5个标签"
 
-#: .\blog\templates\blog\edit_article.html:63
+#: .\blog\templates\blog\edit_article.html:66
 msgid "Save"
 msgstr "保存"
 
-#: .\blog\templates\blog\new_article.html:23
+#: .\blog\templates\blog\new_article.html:28
 msgid "Edit new file"
 msgstr "编辑新文件"
 
-#: .\blog\templates\blog\new_article.html:58
+#: .\blog\templates\blog\new_article.html:63
 msgid "Publish"
 msgstr "发表"
 
@@ -121,6 +125,3 @@ msgstr "发表"
 
 #~ msgid "Content"
 #~ msgstr "内容"
-
-# msgid "Aritle"
-# msgstr "文章"

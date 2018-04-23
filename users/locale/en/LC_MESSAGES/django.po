@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-04-23 09:24+0800\n"
+"POT-Creation-Date: 2018-04-23 22:35+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -47,58 +47,78 @@ msgstr ""
 msgid "Sign in"
 msgstr ""
 
-#: .\users\templates\users\setting.html:65
+#: .\users\templates\users\setting.html:19
 msgid "Profile"
 msgstr ""
 
-#: .\users\templates\users\setting.html:66
+#: .\users\templates\users\setting.html:20
 msgid "Account"
 msgstr ""
 
-#: .\users\templates\users\setting.html:67
+#: .\users\templates\users\setting.html:21
 msgid "Emails"
 msgstr ""
 
-#: .\users\templates\users\setting.html:68
+#: .\users\templates\users\setting.html:22
 msgid "Notifacations"
 msgstr ""
 
-#: .\users\templates\users\setting.html:77
+#: .\users\templates\users\setting.html:31
 msgid "Public profile"
 msgstr ""
 
-#: .\users\templates\users\setting.html:83
+#: .\users\templates\users\setting.html:37
 msgid "Nick Name"
 msgstr ""
 
-#: .\users\templates\users\setting.html:84
+#: .\users\templates\users\setting.html:38
 msgid "Your Nick Name"
 msgstr ""
 
-#: .\users\templates\users\setting.html:87
+#: .\users\templates\users\setting.html:41
 msgid "Sex"
 msgstr ""
 
-#: .\users\templates\users\setting.html:91
+#: .\users\templates\users\setting.html:45
 msgid "Male"
 msgstr ""
 
-#: .\users\templates\users\setting.html:97
+#: .\users\templates\users\setting.html:51
 msgid "Women"
 msgstr ""
 
-#: .\users\templates\users\setting.html:102
+#: .\users\templates\users\setting.html:57
+msgid "Hide"
+msgstr ""
+
+#: .\users\templates\users\setting.html:62
 msgid "Bio"
 msgstr ""
 
-#: .\users\templates\users\setting.html:103
+#: .\users\templates\users\setting.html:63
 msgid "Tell us a little bit about yourself."
 msgstr ""
 
-#: .\users\templates\users\setting.html:106
+#: .\users\templates\users\setting.html:66
 msgid "Save"
 msgstr ""
 
-#: .\users\templates\users\setting.html:116
+#: .\users\templates\users\setting.html:76
 msgid "Upload new picture"
+msgstr ""
+
+#: .\users\templates\users\setting.html:121
+msgid "Save success!"
+msgstr ""
+
+#: .\users\templates\users\setting.html:124
+msgid "Save fail!"
+msgstr ""
+
+#: .\users\templates\users\setting.html:131
+msgid "Information"
+msgstr ""
+
+#: .\users\templates\users\setting.html:133
+msgid "Confirm"
 msgstr ""

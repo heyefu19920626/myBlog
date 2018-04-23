@@ -82,15 +82,25 @@ def upload_head_pic(request):
     return HttpResponse(fname)
 
 
-def change_head_pic(request):
-    """ 修改用户头像 """
-    # 获取图片相对路径
+def upload_person_info(request):
+    """ 修改用户公开个人信息 """
+
+    # 获取相关信息
+    nick_name = request.POST['nick_name']
+    sex = request.POST['sex']
+    bio = request.POST['bio']
     head_pic_path = request.POST['pic_path']
+
     if head_pic_path == None or head_pic_path == '':
         context = {'error': '没有图片'}
         return JsonResponse(context)
 
     if  'head_temp' not in head_pic_path: 
+        author = request.user
+        author.nick_name = nick_name
+        author.sex = sex
+        author.bio = bio
+        author.save()
         context = {'error' : '没有临时图片'}
         return JsonResponse(context)
 
@@ -109,8 +119,12 @@ def change_head_pic(request):
     author = request.user
     # 将头像路径保存入数据库
     author = request.user
-    # 将新头像存入数据库并返回头像新路径
+    # 返回头像新路径
     new_name = settings.MEDIA_URL + new_name.split(settings.MEDIA_ROOT)[-1]
+    # 保存进数据库
+    author.nick_name = nick_name
+    author.sex = sex
+    author.bio = bio
     author.head_portrait = new_name
     author.save()
     context = {'success': new_name}
