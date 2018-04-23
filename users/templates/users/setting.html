@@ -106,7 +106,7 @@
             data: {pic_path: head_pic_path, csrfmiddlewaretoken: '{{ csrf_token }}', },
             dataType: 'json',
             success: function(data){
-                data.success && $('.nav-head-image').attr('src',data.success + '?' + Math.random());
+                data.success && $('.nav-head-image').attr('src', data.success + '?' + Math.random());
             },
             error: function(data){
             }

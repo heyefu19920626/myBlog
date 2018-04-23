@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from urllib.parse import unquote
-from django.http import HttpResponseRedirect, Http404, HttpResponse
+from django.http import HttpResponseRedirect, Http404, HttpResponse, JsonResponse
 from django.utils.translation import LANGUAGE_SESSION_KEY
 from django.utils.http import is_safe_url
 from django.urls import reverse
@@ -77,6 +77,15 @@ def new_article(request):
             return HttpResponseRedirect(reverse('blog:article_details', kwargs={'article_id': new_article.id}))
     context = {'form': form, 'categorys': categorys}
     return render(request, 'blog/new_article.html', context)
+
+
+def preview_article(request):
+    """ 预览文章内容 """
+    body = request.POST['article_body']
+    body = markdown.markdown(body, extensions=['markdown.extensions.extra', 'markdown.extensions.codehilite', 'markdown.extensions.toc', 'markdown.extensions.fenced_code', 'markdown.extensions.abbr', 'markdown.extensions.attr_list', 'markdown.extensions.def_list', 'markdown.extensions.footnotes',
+                                                               'markdown.extensions.tables', 'markdown.extensions.smart_strong', 'markdown.extensions.admonition', 'markdown.extensions.headerid', 'markdown.extensions.meta', 'markdown.extensions.nl2br', 'markdown.extensions.sane_lists', 'markdown.extensions.smarty', 'markdown.extensions.wikilinks'])
+    context = {'body' : body}
+    return JsonResponse(context)
 
 
 def change_language(request, language):
