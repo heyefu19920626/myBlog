@@ -39,7 +39,8 @@ class Article(models.Model):
     # 作者
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     # 标签
-    tags = models.ManyToManyField(Tag)
+    # tags = models.ManyToManyField(Tag)
+    tags = models.CharField(max_length=100)
     # 访问量
     page_view = models.IntegerField(default=0)
     # 称赞量
