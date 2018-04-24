@@ -21,7 +21,7 @@
         <span>
             <span class="text-black">{{ article.author.nick_name }}</span><br>
             {% if article.author != user %}
-            <button class="btn btn-secondary">{% trans 'Follow' %}</button>
+            <button id="follow" onclick="follow()" class="btn btn-secondary">{{ followed }}</button>
             {% endif %}
         </span>
         <!-- end -->
@@ -88,4 +88,24 @@
     </div>
 </div>
 </div>
+
+<script>
+    function follow(){
+        console.log("follow");
+        $.ajax({
+                url: '{% url "blog:article_follow" %}',
+                type: 'POST',
+                data: {user: {{ user.id }}, follow: {{ article.author.id }}, csrfmiddlewaretoken: '{{ csrf_token }}'},
+                dataType: 'json',
+                success: function(data){
+                    data.status && $('#follow').text("{% trans 'Followed' %}")
+                },
+                error: function(data){
+                    console.log('error');
+                }
+            });
+    }
+</script>
+
+
 {% endblock content %}

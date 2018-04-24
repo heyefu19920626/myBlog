@@ -12,4 +12,5 @@ urlpatterns = [
     path('edit_article/<article_id>/', views.edit_article, name='edit_article'),
     path('new_article/', views.new_article, name='new_article'),
     path('article/preview_article/', views.preview_article, name='preview_article'),
+    path('article/follow/', views.follow, name='article_follow'),
 ]

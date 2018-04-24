@@ -11,6 +11,8 @@ from .forms import ArticleForm, NewArticleForm
 # from django.contrib.auth.models import User
 # from users.models import MyUser
 from django.contrib.auth.decorators import login_required
+from users.models import FollowRelation, MyUser
+from django.utils.translation import gettext_lazy as _
 
 # Create your views here.
 
@@ -33,11 +35,18 @@ def article_details(request, article_id):
     article.save()
     # 获取文章作者
     author = article.author
+
+    followed = FollowRelation.objects.filter(user=request.user.id, follower=author.id)
+    if len(followed) != 0:
+        followed = _('Followed')
+    else:
+        followed = _('Follow')
+
     # 获取该作者的其他文章
     articles = get_articles_byauthor(author)
     article.body = markdown.markdown(article.body, extensions=['markdown.extensions.extra', 'markdown.extensions.codehilite', 'markdown.extensions.toc', 'markdown.extensions.fenced_code', 'markdown.extensions.abbr', 'markdown.extensions.attr_list', 'markdown.extensions.def_list', 'markdown.extensions.footnotes',
                                                                'markdown.extensions.tables', 'markdown.extensions.smart_strong', 'markdown.extensions.admonition', 'markdown.extensions.headerid', 'markdown.extensions.meta', 'markdown.extensions.nl2br', 'markdown.extensions.sane_lists', 'markdown.extensions.smarty', 'markdown.extensions.wikilinks'])
-    context = {'article': article, "articles": articles, }
+    context = {'article': article, "articles": articles, 'followed': followed}
     return render(request, 'blog/article_details.html', context)
 
 
@@ -95,6 +104,27 @@ def preview_article(request):
                                                                'markdown.extensions.tables', 'markdown.extensions.smart_strong', 'markdown.extensions.admonition', 'markdown.extensions.headerid', 'markdown.extensions.meta', 'markdown.extensions.nl2br', 'markdown.extensions.sane_lists', 'markdown.extensions.smarty', 'markdown.extensions.wikilinks'])
     context = {'body' : body}
     return JsonResponse(context)
+
+
+
+def follow(request):
+    """ 关注作者 """
+    user = request.POST['user']
+    follow = request.POST['follow']
+    followed = FollowRelation.objects.filter(user=user,follower=follow)
+    if len(followed) != 0:
+        return JsonResponse({'status': '已关注'})
+    follow_relation = FollowRelation(user=user, follower=follow)
+    follow_relation.save()
+    user = request.user
+    user.following += 1
+    user.save()
+    follower = MyUser.objects.get(id=follow)
+    follower.followers += 1
+    follower.save()
+    return JsonResponse({'status': 'success'})
+
+
 
 
 def change_language(request, language):

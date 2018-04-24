@@ -31,5 +31,5 @@ class FollowRelation(models.Model):
     # 用户id
     user = models.IntegerField()
     # 被关注者id
-    follwer = models.IntegerField()
+    follower = models.IntegerField()
 
