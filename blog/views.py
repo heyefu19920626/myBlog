@@ -25,6 +25,9 @@ def index(request):
 def article_details(request, article_id):
     """ 去往文章详情页,接收参数文章id """
     article = Article.objects.get(id=article_id)
+    # 每点击一次,访问量加1
+    article.page_view +=  1
+    article.save()
     # 获取文章作者
     author = article.author
     # 获取该作者的其他文章
