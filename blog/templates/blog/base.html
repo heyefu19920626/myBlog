@@ -102,4 +102,13 @@
                     {% block content %}{% endblock content %}
         </main>
     </body>
+<script>
+function layer_alert(info){
+    layer.open({
+        title: "{% trans 'Information' %}", 
+        content: info,
+        btn: "{% trans 'Confirm' %}",
+    }); 
+}
+</script>
 </html>

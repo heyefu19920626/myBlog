@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-04-24 16:37+0800\n"
+"POT-Creation-Date: 2018-04-24 20:18+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -113,12 +113,4 @@ msgstr ""
 
 #: .\users\templates\users\setting.html:124
 msgid "Save fail!"
-msgstr ""
-
-#: .\users\templates\users\setting.html:131
-msgid "Information"
-msgstr ""
-
-#: .\users\templates\users\setting.html:133
-msgid "Confirm"
 msgstr ""

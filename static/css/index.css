@@ -71,3 +71,10 @@ main{
 .margin-right{
     margin-right: 1rem;
 }
+.inline-dl dl{
+    display: inline-block;
+    width: 21%;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-04-24 16:37+0800\n"
+"POT-Creation-Date: 2018-04-24 20:11+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,10 +17,6 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-
-#: .\blog\templates\blog\article_details.html:24
-msgid "Follow"
-msgstr "关注"
 
 #: .\blog\templates\blog\article_details.html:32
 msgid "Blog"
@@ -54,6 +50,10 @@ msgstr "编辑"
 msgid "Delete"
 msgstr "删除"
 
+#: .\blog\templates\blog\article_details.html:105
+msgid "Please login first!"
+msgstr "请先登录!"
+
 #: .\blog\templates\blog\base.html:30
 msgid "Myblog"
 msgstr "我的博客"
@@ -85,6 +85,14 @@ msgstr "注册"
 #: .\blog\templates\blog\base.html:77
 msgid "Sign up"
 msgstr "登录"
+
+#: .\blog\templates\blog\base.html:108
+msgid "Information"
+msgstr "信息"
+
+#: .\blog\templates\blog\base.html:110
+msgid "Confirm"
+msgstr "确认"
 
 #: .\blog\templates\blog\edit_article.html:20
 #: .\blog\templates\blog\new_article.html:20
@@ -131,6 +139,16 @@ msgstr "编辑新文件"
 #: .\blog\templates\blog\new_article.html:65
 msgid "Publish"
 msgstr "发表"
+
+#: .\blog\views.py:41 .\blog\views.py:134
+#, fuzzy
+#| msgid "Follow"
+msgid "Followed"
+msgstr "关注"
+
+#: .\blog\views.py:43 .\blog\views.py:126
+msgid "Follow"
+msgstr "关注"
 
 #~ msgid "最多添加5个标签"
 #~ msgstr "最多添加5个标签"

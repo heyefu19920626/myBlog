@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-04-24 16:37+0800\n"
+"POT-Creation-Date: 2018-04-24 20:11+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -115,15 +115,13 @@ msgstr "保存成功!"
 msgid "Save fail!"
 msgstr "保存失败!"
 
-#: .\users\templates\users\setting.html:131
-msgid "Information"
-msgstr "信息"
+#~ msgid "Information"
+#~ msgstr "信息"
 
-#: .\users\templates\users\setting.html:133
 #, fuzzy
-#| msgid "Password Confirm"
-msgid "Confirm"
-msgstr "密码确认"
+#~| msgid "Password Confirm"
+#~ msgid "Confirm"
+#~ msgstr "密码确认"
 
 #~ msgid "Your password must contain at least 8 characters."
 #~ msgstr "你的密码必须包含至少 8 个字符。"

@@ -96,7 +96,7 @@ def new_article(request):
     context = {'form': form, 'categorys': categorys}
     return render(request, 'blog/new_article.html', context)
 
-
+@login_required
 def preview_article(request):
     """ 预览文章内容 """
     body = request.POST['article_body']
@@ -107,22 +107,31 @@ def preview_article(request):
 
 
 
+@login_required
 def follow(request):
     """ 关注作者 """
-    user = request.POST['user']
-    follow = request.POST['follow']
-    followed = FollowRelation.objects.filter(user=user,follower=follow)
-    if len(followed) != 0:
-        return JsonResponse({'status': '已关注'})
-    follow_relation = FollowRelation(user=user, follower=follow)
-    follow_relation.save()
+    request_user = request.user.id
+    request_follow = request.POST['follow']
+    # 查看是否已关注
+    followed = FollowRelation.objects.filter(user=request_user,follower=request_follow)
     user = request.user
+    follower = MyUser.objects.get(id=request_follow)
+    # 如果已关注,则取消关注
+    if len(followed) != 0:
+        followed.delete()
+        user.following -= 1
+        follower.followers -= 1
+        user.save()
+        follower.save()
+        return JsonResponse({'status': _('Follow')})
+    # 否则关注
+    follow_relation = FollowRelation(user=request_user, follower=request_follow)
+    follow_relation.save()
     user.following += 1
     user.save()
-    follower = MyUser.objects.get(id=follow)
     follower.followers += 1
     follower.save()
-    return JsonResponse({'status': 'success'})
+    return JsonResponse({'status': _('Followed')})
 
 
 

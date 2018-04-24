@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-04-24 16:37+0800\n"
+"POT-Creation-Date: 2018-04-24 20:18+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,15 +18,9 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: .\blog\templates\blog\article_details.html:24
-msgid "Follow"
-msgstr ""
-
 #: .\blog\templates\blog\article_details.html:32
-#, fuzzy
-#| msgid "New Blog"
 msgid "Blog"
-msgstr "New Blog"
+msgstr "Blog"
 
 #: .\blog\templates\blog\article_details.html:36
 msgid "Followers"
@@ -54,6 +48,10 @@ msgstr "Edit"
 
 #: .\blog\templates\blog\article_details.html:78
 msgid "Delete"
+msgstr ""
+
+#: .\blog\templates\blog\article_details.html:105
+msgid "Please login first!"
 msgstr ""
 
 #: .\blog\templates\blog\base.html:30
@@ -88,18 +86,22 @@ msgstr "Sign in"
 msgid "Sign up"
 msgstr "Sign up"
 
+#: .\blog\templates\blog\base.html:108
+msgid "Information"
+msgstr "Information"
+
+#: .\blog\templates\blog\base.html:110
+msgid "Confirm"
+msgstr "Confirm"
+
 #: .\blog\templates\blog\edit_article.html:20
 #: .\blog\templates\blog\new_article.html:20
-#, fuzzy
-#| msgid "Your Title"
 msgid "Article Title"
-msgstr "Your Title"
+msgstr "Article Title"
 
 #: .\blog\templates\blog\edit_article.html:28
-#, fuzzy
-#| msgid "Edit"
 msgid "Edit file"
-msgstr "Edit"
+msgstr "Edit file"
 
 #: .\blog\templates\blog\edit_article.html:29
 #: .\blog\templates\blog\new_article.html:29
@@ -138,8 +140,13 @@ msgstr ""
 msgid "Publish"
 msgstr ""
 
-#~ msgid "最多添加5个标签"
-#~ msgstr "Add 5 tags at most"
+#: .\blog\views.py:41 .\blog\views.py:134
+msgid "Followed"
+msgstr ""
+
+#: .\blog\views.py:43 .\blog\views.py:126
+msgid "Follow"
+msgstr ""
 
 #~ msgid "Author"
 #~ msgstr "Author"
