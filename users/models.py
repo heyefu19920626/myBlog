@@ -23,3 +23,13 @@ class MyUser(AbstractUser):
     articles = models.IntegerField(default=0)
     # 评论数
     comments = models.IntegerField(default=0)
+
+
+        
+class FollowRelation(models.Model):
+    """ 用户之间的关注关系 """
+    # 用户id
+    user = models.IntegerField()
+    # 被关注者id
+    follwer = models.IntegerField()
+
