@@ -14,9 +14,9 @@
 
 - Article 博客文章表
 
-| ID | 标题 | 正文 | 作者 | 创建时间 | 修改时间 | 分类 | 标签 |
-|:----:|:----:|:----:|:----:|:----:|:----:|:----:|:----:|
-| int | CharField | TextField | User | DateTimeField | DateTimeField | Category | Tag |
+| ID | 标题 | 正文 | 作者 | 创建时间 | 修改时间 | 分类 | 标签 | 访问量 | 赞数 | 贬数 | 评论数 |
+|:----:|:----:|:----:|:----:|:----:|:----:|:----:|:----:|:---:|:---:|:---:|:---:|
+| int | CharField | TextField | User | DateTimeField | DateTimeField | Category | Tag | page_view | praise | censure | comments |
 
 - Comments 评论表
 

@@ -46,8 +46,9 @@
         <div class="d-flex flex-row">
             <a class="a-hover p-2" href="#">{{ article.category }}</a>
             <span class="p-2">{{ article.created_time }}</span>
+            <a class="a-hover ml-auto p-2"><img class="icon-sm" src="{% static 'img/svg/eye.svg' %}"> {{ article.page_view }}</a>
             {% if user == article.author %}
-            <a class="a-hover ml-auto p-2 edit-icon" href="{% url 'blog:edit_article' article.id %}">
+            <a class="a-hover p-2" href="{% url 'blog:edit_article' article.id %}">
                 <img src="{% static 'img/svg/edit.svg' %}" class="icon-sm">
                 {% trans 'Edit' %}
             </a>

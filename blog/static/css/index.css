@@ -20,6 +20,7 @@ main{
 }
 .a-text{
     color: #343a40;
+    text-decoration: none;
 }
 .a-hover:hover{
     text-decoration: none;
