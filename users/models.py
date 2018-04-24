@@ -15,3 +15,11 @@ class MyUser(AbstractUser):
     sex = models.IntegerField(default=2)
     # 用户简介
     bio = models.CharField(max_length=100, default='')
+    # 关注人数
+    following = models.IntegerField(default=0)
+    # 粉丝数
+    followers = models.IntegerField(default=0)
+    # 博客数
+    articles = models.IntegerField(default=0)
+    # 评论数
+    comments = models.IntegerField(default=0)

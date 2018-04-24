@@ -25,6 +25,9 @@ def index(request):
 def article_details(request, article_id):
     """ 去往文章详情页,接收参数文章id """
     article = Article.objects.get(id=article_id)
+    # articles = Article.objects.filter(author=article.author)
+    # article.author.articles = len(articles)
+    # article.author.save()
     # 每点击一次,访问量加1
     article.page_view +=  1
     article.save()
@@ -77,6 +80,9 @@ def new_article(request):
         if form.is_valid():
             new_article = form.save(commit=False)
             new_article.save()
+            author = request.user
+            author.articles += 1
+            author.save()
             return HttpResponseRedirect(reverse('blog:article_details', kwargs={'article_id': new_article.id}))
     context = {'form': form, 'categorys': categorys}
     return render(request, 'blog/new_article.html', context)

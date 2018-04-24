@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-04-23 22:35+0800\n"
+"POT-Creation-Date: 2018-04-24 16:37+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -22,19 +22,37 @@ msgstr ""
 msgid "Follow"
 msgstr ""
 
-#: .\blog\templates\blog\article_details.html:31
-msgid "The latest blog post"
+#: .\blog\templates\blog\article_details.html:32
+#, fuzzy
+#| msgid "New Blog"
+msgid "Blog"
+msgstr "New Blog"
+
+#: .\blog\templates\blog\article_details.html:36
+msgid "Followers"
 msgstr ""
 
-#: .\blog\templates\blog\article_details.html:35
-msgid "More"
+#: .\blog\templates\blog\article_details.html:40
+msgid "Following"
+msgstr ""
+
+#: .\blog\templates\blog\article_details.html:44
+msgid "Comments"
 msgstr ""
 
 #: .\blog\templates\blog\article_details.html:52
+msgid "The latest blog post"
+msgstr ""
+
+#: .\blog\templates\blog\article_details.html:56
+msgid "More"
+msgstr ""
+
+#: .\blog\templates\blog\article_details.html:74
 msgid "Edit"
 msgstr "Edit"
 
-#: .\blog\templates\blog\article_details.html:56
+#: .\blog\templates\blog\article_details.html:78
 msgid "Delete"
 msgstr ""
 
@@ -88,22 +106,27 @@ msgstr "Edit"
 msgid "Preview"
 msgstr ""
 
-#: .\blog\templates\blog\edit_article.html:37
-#: .\blog\templates\blog\new_article.html:38
+#: .\blog\templates\blog\edit_article.html:30
+#: .\blog\templates\blog\new_article.html:30
+msgid "Support Markdown"
+msgstr ""
+
+#: .\blog\templates\blog\edit_article.html:39
+#: .\blog\templates\blog\new_article.html:40
 msgid "Category"
 msgstr "Category"
 
-#: .\blog\templates\blog\edit_article.html:54
-#: .\blog\templates\blog\new_article.html:51
+#: .\blog\templates\blog\edit_article.html:56
+#: .\blog\templates\blog\new_article.html:53
 msgid "Tags"
 msgstr ""
 
-#: .\blog\templates\blog\edit_article.html:56
-#: .\blog\templates\blog\new_article.html:53
+#: .\blog\templates\blog\edit_article.html:58
+#: .\blog\templates\blog\new_article.html:55
 msgid "Add 5 tags at most"
 msgstr ""
 
-#: .\blog\templates\blog\edit_article.html:66
+#: .\blog\templates\blog\edit_article.html:68
 msgid "Save"
 msgstr "Save"
 
@@ -111,7 +134,7 @@ msgstr "Save"
 msgid "Edit new file"
 msgstr ""
 
-#: .\blog\templates\blog\new_article.html:63
+#: .\blog\templates\blog\new_article.html:65
 msgid "Publish"
 msgstr ""
 

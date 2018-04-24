@@ -12,7 +12,7 @@
 <div class="row">
 
     <!-- left start -->
-    <div class="col-md-2 no-padding bg-light">
+    <div class="col-md-3 no-padding bg-light">
         <div class="jumbotron jumbotron-nomargin text-center">
         <!-- 作者信息 start -->
         <span class="head-pic-span margin-center margin-top">
@@ -25,6 +25,27 @@
             {% endif %}
         </span>
         <!-- end -->
+        <div class="dropdown-divider border-tint"></div>
+        
+        <div class="inline-dl">
+            <dl>
+                <dt>{% trans 'Blog' %}</dt>
+                <dd>{{ article.author.articles }}</dd>
+            </dl>
+            <dl>
+                <dt>{% trans 'Followers' %}</dt>
+                <dd>{{ article.author.followers }}</dd>
+            </dl>
+            <dl>
+                <dt>{% trans 'Following' %}</dt>
+                <dd>{{ article.author.following }}</dd>
+            </dl>
+            <dl>
+                <dt>{% trans 'Comments' %}</dt>
+                <dd>{{ article.author.comments }}</dd>
+            </dl>
+        </div>
+
         <div class="dropdown-divider border-tint"></div>
         <!-- 文章列表 start -->
         <div class="text-left">
@@ -40,7 +61,7 @@
     <!-- left over -->
 
 
-    <div class="col-md-10 bg-light">
+    <div class="col-md-9 bg-light">
         <!-- article title bar start -->
         <h3 class="margin-top">{{ article.title }}</h3>
         <div class="d-flex flex-row">
