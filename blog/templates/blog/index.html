@@ -12,7 +12,7 @@
                 <h3><a href="{% url 'blog:article_details' article.id %}" class="a-text a-hover">{{ article.title }}</a></h3>
                 <dl class="list-articles">
                     <dt><a class="a-hover" href="#">{{ article.category }}</a></dt>
-                    <dt><a class="text-secondary a-hover" href="#">{{ article.author }}</a></dt>
+                    <dt><a class="text-secondary a-hover" href="#"><img class="list-article-image" src="{{ article.author.head_portrait }}">{{ article.author.nick_name }}</a></dt>
                     <dt><a href="#" class="text-dark a-hover">{{ article.created_time }}</a></dt>
                 </dl>
             </div>

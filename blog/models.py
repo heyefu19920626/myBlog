@@ -40,6 +40,15 @@ class Article(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     # 标签
     tags = models.ManyToManyField(Tag)
+    # 访问量
+    page_view = models.IntegerField(default=0)
+    # 称赞量
+    praise = models.IntegerField(default=0)
+    # 谴责量
+    censure = models.IntegerField(default=0)
+    # 评论量
+    comments = models.IntegerField(default=0)
+
 
     def __str__(self):
         return self.title
