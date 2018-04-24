@@ -141,10 +141,8 @@ msgid "Publish"
 msgstr "发表"
 
 #: .\blog\views.py:41 .\blog\views.py:134
-#, fuzzy
-#| msgid "Follow"
 msgid "Followed"
-msgstr "关注"
+msgstr "已关注"
 
 #: .\blog\views.py:43 .\blog\views.py:126
 msgid "Follow"
