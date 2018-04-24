@@ -20,6 +20,7 @@ main{
 }
 .a-text{
     color: #343a40;
+    text-decoration: none;
 }
 .a-hover:hover{
     text-decoration: none;
@@ -58,6 +59,10 @@ main{
 .nav-head-image{
     height: 2rem;
     width: 2rem;
+}
+.list-article-image{
+    height: 1rem;
+    width: 1rem;
 }
 .icon-sm{
     height: 1.2rem;
