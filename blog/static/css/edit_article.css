@@ -1,0 +1,54 @@
+.btn-add-tag{
+    padding: 0;
+    border: none;
+    background-color: transparent;
+    color: #349EDF;
+    outline: none;
+    cursor: pointer;
+}
+.icon-add{
+    background-color: #349EDF;
+    color: #fff;
+    vertical-align: -1px;
+    font-family: "xheIcon" !important;
+    font-style: normal;
+    border-radius: 0.3rem;
+}
+.icon-add:before{
+    content: '+';
+}
+.icon-close{
+    margin-top: 5px;
+    margin-left: 0.5rem;
+    vertical-align: -1px;
+    font-family: "xheIcon" !important;
+    font-style: normal;
+    font-size: 1.1rem;
+    cursor: pointer;
+    border-radius: 0.3rem;
+}
+.icon-close:before{
+    content: 'x';
+}
+.span-tag {
+  margin-top: 9px;
+  display: block;
+  padding: 3px 8px;
+  max-width: 480px;
+  background: #c0bdbd;
+  border-radius: 2px;
+  height: 21px;
+  color: #4f4f4f;
+  overflow: hidden;
+  text-align: center;
+  white-space: nowrap;
+}
+.div-flex{
+    display: flex;
+}
+.mar-l-1{
+    margin-left: 1rem;
+}
+.mar-r-5{
+    margin-right: 0.5rem;
+}

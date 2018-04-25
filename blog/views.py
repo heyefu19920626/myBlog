@@ -46,6 +46,7 @@ def article_details(request, article_id):
     articles = get_articles_byauthor(author)
     article.body = markdown.markdown(article.body, extensions=['markdown.extensions.extra', 'markdown.extensions.codehilite', 'markdown.extensions.toc', 'markdown.extensions.fenced_code', 'markdown.extensions.abbr', 'markdown.extensions.attr_list', 'markdown.extensions.def_list', 'markdown.extensions.footnotes',
                                                                'markdown.extensions.tables', 'markdown.extensions.smart_strong', 'markdown.extensions.admonition', 'markdown.extensions.headerid', 'markdown.extensions.meta', 'markdown.extensions.nl2br', 'markdown.extensions.sane_lists', 'markdown.extensions.smarty', 'markdown.extensions.wikilinks'])
+    article.tags = article.tags.split('/')
     context = {'article': article, "articles": articles, 'followed': followed}
     return render(request, 'blog/article_details.html', context)
 
@@ -73,6 +74,7 @@ def edit_article(request, article_id):
         else:
             print('表单验证出错')
     categorys = Category.objects.all()
+    article.tags = article.tags.split('/')
     context = {'article': article, 'form': form, 'categorys': categorys}
     return render(request, 'blog/edit_article.html', context)
 

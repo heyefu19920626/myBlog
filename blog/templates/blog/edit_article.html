@@ -5,6 +5,7 @@
 
 {% block extracss %}
 <link rel="stylesheet" href="{% static 'css/markdown.css' %}">
+<link rel="stylesheet" href="{% static 'css/edit_article.css' %}">
 {% endblock extracss %}
 
 {% block content %}
@@ -54,10 +55,23 @@
                             <!-- 文章标签 -->
                             <div class="form-group row">
                                 <label for="id_tags" class="col-md-2 col-form-label text-center">{% trans 'Tags' %} :</label>
-                                <input type="hidden" name="hideTags" id="hideTags">
+                                <div class="div-flex mar-l-1">
+                                    <input type="hidden" name="tags" id="hideTags">
+                                    {% for tag in article.tags %}
+                                    <div class="div-flex mar-r-5"><span class="span-tag" contenteditable="true">{{ tag }}</span><i class="icon-close"></i></div>
+                                    {% endfor %}
+                                    <button id="addTag" onclick="add_tag()" type="button" class="btn-add-tag">
+                                        <i class="icon-add" aria-hidden="true"></i>
+                                        添加新标签
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2 offset-md-2">
                                 <small id="tagsHelpBlock" class="form-text text-muted">
                                     {% trans 'Add 5 tags at most' %}
                                 </small>
+                                <div>
                             </div>
                             <!-- end -->
                       </div>
@@ -91,5 +105,10 @@
                 }
             });
         }
+
+        window.onload = function(){
+            $('.span-tag').length > 4 && $('#addTag').hide();
+        }
     </script>
+    <script src="{% static 'js/edit_article.js' %}"></script>
 {% endblock content %}

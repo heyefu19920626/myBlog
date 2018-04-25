@@ -17,7 +17,7 @@ class NewArticleForm(forms.ModelForm):
     """  新建文章表单 """
     class Meta:
         model = Article
-        fields = ['title', 'body', 'category', 'author']
-        TextInput = {'title': '', 'author': ''}
+        fields = ['title', 'body', 'category', 'author', 'tags']
+        TextInput = {'title': '', 'author': '', 'tags': ''}
         Textarea = {'body': ''}
         ChoiceField = {'category': ''}
