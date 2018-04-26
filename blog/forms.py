@@ -7,8 +7,8 @@ class ArticleForm(forms.ModelForm):
     class Meta:
         """docstring for Meta"""
         model = Article
-        fields = ['title', 'body','category']
-        TextInput = {'title': ''}
+        fields = ['title', 'body','category', 'tags']
+        TextInput = {'title': '', 'tags': ''}
         Textarea = {'body': ''}
         ChoiceField = {'category': ''}
 

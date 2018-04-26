@@ -64,14 +64,18 @@
     <div class="col-md-9 bg-light">
         <!-- article title bar start -->
         <h3 class="margin-top">{{ article.title }}</h3>
-        <div class="d-flex flex-row">
+        <div class="d-flex">
             <a class="a-hover p-2" href="#">{{ article.category }}</a>
             <span class="p-2">{{ article.created_time }}</span>
+
+            <!-- 文章标签 start -->
             {% for tag in article.tags|slice:':-1' %}
             <a class="a-hover p-2" href="#">{{ tag }}</a>
             <span class="p-2">/</span>
             {% endfor %}
             <a class="a-hover p-2" href="#">{{ article.tags|last }}</a>
+            <!-- end -->
+
             <a class="a-hover ml-auto p-2"><img class="icon-sm" src="{% static 'img/svg/eye.svg' %}"> {{ article.page_view }}</a>
             {% if user == article.author %}
             <a class="a-hover p-2" href="{% url 'blog:edit_article' article.id %}">
@@ -86,10 +90,13 @@
         </div>
         <div class="dropdown-divider"></div>
         <!-- article title bar over -->
+
         <div class="markdown-body">
             {{ article.body | safe }}
         </div>
+
         <br>
+
     </div>
 </div>
 </div>
