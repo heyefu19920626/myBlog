@@ -5,6 +5,10 @@
 {% block extracss %}
 <link rel="stylesheet" href="{% static 'css/markdown.css' %}">
 <link rel="stylesheet" type="text/css" href="{% static 'css/article.css' %}">
+
+<style type="text/css">
+    
+</style>
 {% endblock extracss %}
 
 {% block content %}
@@ -96,10 +100,26 @@
         </div>
 
         <br>
-
     </div>
+
+    <!-- 点赞等 start -->
+    <div style="position: fixed; color: red; right: 180px; top: 40%; ">
+        <ul class="tool-ul">
+            <li><a href="#"><img class="icon-tool" src="{% static 'img/svg/ios-arrow-up.svg' %}"></a></li>
+            <li><a href="#"><img class="icon-tool" src="{% static 'img/svg/thumbsup.svg' %}"></a></li>
+            <li><a href="#"><img class="icon-tool" src="{% static 'img/svg/bookmark.svg' %}"></a></li>
+            <li><a href="#"><img class="icon-tool" src="{% static 'img/svg/chatbox.svg' %}"></a></li>
+            <li class="icon-tool" >
+                <svg class="webicon"></svg>
+            </li>
+        </ul>
+    </div>
+
 </div>
 </div>
+
+
+
 
 <script>
     function follow(){
