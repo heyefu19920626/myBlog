@@ -31,12 +31,13 @@ def article_details(request, article_id):
     # article.author.articles = len(articles)
     # article.author.save()
     # 每点击一次,访问量加1
-    article.page_view +=  1
+    article.page_view += 1
     article.save()
     # 获取文章作者
     author = article.author
 
-    followed = FollowRelation.objects.filter(user=request.user.id, follower=author.id)
+    followed = FollowRelation.objects.filter(
+        user=request.user.id, follower=author.id)
     if len(followed) != 0:
         followed = _('Followed')
     else:
@@ -98,15 +99,15 @@ def new_article(request):
     context = {'form': form, 'categorys': categorys}
     return render(request, 'blog/new_article.html', context)
 
+
 @login_required
 def preview_article(request):
     """ 预览文章内容 """
     body = request.POST['article_body']
     body = markdown.markdown(body, extensions=['markdown.extensions.extra', 'markdown.extensions.codehilite', 'markdown.extensions.toc', 'markdown.extensions.fenced_code', 'markdown.extensions.abbr', 'markdown.extensions.attr_list', 'markdown.extensions.def_list', 'markdown.extensions.footnotes',
-                                                               'markdown.extensions.tables', 'markdown.extensions.smart_strong', 'markdown.extensions.admonition', 'markdown.extensions.headerid', 'markdown.extensions.meta', 'markdown.extensions.nl2br', 'markdown.extensions.sane_lists', 'markdown.extensions.smarty', 'markdown.extensions.wikilinks'])
-    context = {'body' : body}
+                                               'markdown.extensions.tables', 'markdown.extensions.smart_strong', 'markdown.extensions.admonition', 'markdown.extensions.headerid', 'markdown.extensions.meta', 'markdown.extensions.nl2br', 'markdown.extensions.sane_lists', 'markdown.extensions.smarty', 'markdown.extensions.wikilinks'])
+    context = {'body': body}
     return JsonResponse(context)
-
 
 
 @login_required
@@ -115,7 +116,8 @@ def follow(request):
     request_user = request.user.id
     request_follow = request.POST['follow']
     # 查看是否已关注
-    followed = FollowRelation.objects.filter(user=request_user,follower=request_follow)
+    followed = FollowRelation.objects.filter(
+        user=request_user, follower=request_follow)
     user = request.user
     follower = MyUser.objects.get(id=request_follow)
     # 如果已关注,则取消关注
@@ -127,15 +129,14 @@ def follow(request):
         follower.save()
         return JsonResponse({'status': _('Follow')})
     # 否则关注
-    follow_relation = FollowRelation(user=request_user, follower=request_follow)
+    follow_relation = FollowRelation(
+        user=request_user, follower=request_follow)
     follow_relation.save()
     user.following += 1
     user.save()
     follower.followers += 1
     follower.save()
     return JsonResponse({'status': _('Followed')})
-
-
 
 
 def change_language(request, language):
